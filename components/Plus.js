@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   addButton: {
     position: 'absolute',
     top: windowHeight/1.45,
-    left:  windowWidth/4,
+    left:  windowWidth/2.,
     right: windowWidth/4,
     zIndex: 50,
     alignItems: 'center',

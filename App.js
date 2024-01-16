@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import {     StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import Header from './components/Header'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PlusIcon, { Plus } from './components/Plus';
+import  Dialog from './components/Dialog';
 
 
 export default function App() {
@@ -11,9 +12,9 @@ export default function App() {
         <View className=" justify-center self-left ml-4" >
           <Header />
         </View>
-        <View className="m-12" >
-            <PlusIcon />
-        </View>
+        <Dialog />
+        <PlusIcon />
+        
       </SafeAreaView>
   );
 }
