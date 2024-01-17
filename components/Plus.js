@@ -1,19 +1,24 @@
-import React from 'react';
-import { TouchableOpacity, View, StyleSheet,Dimensions } from 'react-native';
+import React, { useState } from 'react';
+
+import { Pressable, View, StyleSheet,Dimensions, Text } from 'react-native';
+import SwipeModal from './Modal';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 
-export default function PlusIcon() {
+export default function PlusIcon({props}) {
+  const plusIconClicked=props.plusIconClicked
+
   return (
-    <TouchableOpacity style={styles.addButton}    >
+    <Pressable style={styles.addButton} onPress={()=>props.setPlusIconClicked(!plusIconClicked)}     >
       <Plus />
-    </TouchableOpacity>
+      
+    </Pressable>
   );
 }
 
-export function Plus() {
+export  function Plus() {
   return (
     <View style={styles.plusIcon}>
       <View style={styles.horizontalLine} />
