@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 import { Pressable, View, StyleSheet,Dimensions, Text } from 'react-native';
-import SwipeModal from './Modal';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 
 export default function PlusIcon({props}) {
-  const plusIconClicked=props.plusIconClicked
+  
+  const navigation = useNavigation();
 
   return (
-    <Pressable style={styles.addButton} onPress={()=>props.setPlusIconClicked(!plusIconClicked)}     >
+    <Pressable style={styles.addButton} onPress={()=>navigation.navigate('Set alarm')}     >
       <Plus />
-      
     </Pressable>
   );
 }
@@ -30,9 +29,9 @@ export  function Plus() {
 const styles = StyleSheet.create({
   addButton: {
     position: 'absolute',
-    top: windowHeight/1.15,
-    left:  windowWidth/2.7,
-    right: windowWidth/2,
+    bottom: 30, 
+    left: '50%',
+    transform: [{ translateX: -50 }], // Half of the width of the addButton
     zIndex: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     elevation: 10,
     backgroundColor: '#176a29',
-  },
+    },
   plusIcon: {
     width: 30,
     height: 30,

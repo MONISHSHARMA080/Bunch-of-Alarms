@@ -1,31 +1,33 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
-import Header from './components/Header'
-import { SafeAreaView } from 'react-native-safe-area-context';
-import PlusIcon from './components/Plus';
-import  Dialog from './components/Dialog';
-import SwipeModal from './components/Modal';
-import { useState } from 'react';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import {
+  NavigationContainer, DefaultTheme,DarkTheme, useNavigation }
+                    from '@react-navigation/native';
+import { useColorScheme } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Main from './components/Main';
+import Dialog from './components/SetAlarm';
 
 
 export default function App() {
-  const [plusIconClicked , setPlusIconClicked] = useState(false)
-  plusIocnclick = { setPlusIconClicked: setPlusIconClicked, plusIconClicked:plusIconClicked}
+
+
+  const Stack = createNativeStackNavigator();
+  const scheme = useColorScheme();
 
   return (
-    <SafeAreaView className="bg-gray-100  flex-1 ">
-        <View className=" justify-center self-left ml-4" >
-          <Header />
-        </View>
-        <Dialog />
-        {plusIconClicked ? (<SwipeModal />) : null  }
-        <PlusIcon props={plusIocnclick} />
-        
-      </SafeAreaView>
+    <NavigationContainer  theme={scheme === 'dark' ? DarkTheme : DefaultTheme} >
+      <Stack.Navigator initialRouteName="Bunch of alarms" 
+      screenOptions={{
+        headerMode: 'screen',
+        headerStyle: { backgroundColor: "#090909" },
+        headerTitleStyle: { color: 'green',fontSize:26,fontWeight:"900",} }}
+        options={{ headerShown: false }}
+      >
+        <Stack.Screen name="Bunch of alarms" component={Main} />
+        <Stack.Screen name="Set alarm" component={Dialog} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-// },
-// });
