@@ -1,10 +1,9 @@
 import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
 import { useState } from 'react';
-import { Button,Text } from 'react-native';
-
+import { Button } from 'react-native-paper';
 
 export default function App() {
-    const [date, setDate] = useState(new Date(1598051730000));
+    const [date, setDate] = useState(new Date());
   
     const onChange = (event, selectedDate) => {
       const currentDate = selectedDate;
@@ -30,9 +29,15 @@ export default function App() {
   
     return (
       <>
-        <Button onPress={showDatepicker} title="Show date picker!" />
-        <Button onPress={showTimepicker} title="Show time picker!" />
-        <Text>selected: {date.toLocaleString()}</Text>
+        <Button  onPress={showDatepicker}  rippleColor="#33dda1"
+         mode="outlined" className="m-3" textColor='white' buttonColor='#176a29'
+        >Date</Button>
+        <Button onPress={showTimepicker} title="time"  buttonColor='#176a29'
+         mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
+         >Time</Button>
       </>
     );
   };
+
+
+  

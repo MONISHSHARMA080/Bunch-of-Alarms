@@ -8,7 +8,7 @@ import  Dialog from './components/Dialog';
 
 export default function App() {
   return (
-      <SafeAreaView className="bg-gray-900  flex-1 ">
+      <SafeAreaView className="bg-gray-100  flex-1 ">
         <View className=" justify-center self-left ml-4" >
           <Header />
         </View>
