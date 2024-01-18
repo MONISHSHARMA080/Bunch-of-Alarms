@@ -6,7 +6,7 @@ import PlusIcon from './Plus';
 export default function Main({ navigation }) {
   return (
     <View className="flex-1 bg-black "  >
-        <PlusIcon props={plusIocnclick} />
+        <PlusIcon  />
     </View>
   );
 }

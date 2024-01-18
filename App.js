@@ -14,10 +14,15 @@ export default function App() {
 
   const Stack = createNativeStackNavigator();
   const scheme = useColorScheme();
+  console.log("---");
+  console.log(scheme);
+  console.log("---");
 
+
+  
   return (
     <NavigationContainer  theme={scheme === 'dark' ? DarkTheme : DefaultTheme} >
-      <Stack.Navigator initialRouteName="Bunch of alarms" 
+      <Stack.Navigator initialRouteName="Bunch of alarms" mode="modal"
       screenOptions={{
         headerMode: 'screen',
         headerStyle: { backgroundColor: "#090909" },
