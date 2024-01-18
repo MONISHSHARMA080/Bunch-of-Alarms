@@ -85,6 +85,8 @@ export default function SetAlarm() {
             className="text-white bg-[#176a29] border-l-stone-300 m-3 p-2 pl-3 rounded-full "
             label="Number Input"
             inputMode="numeric"
+            placeholder="Enter frequency"
+            placeholderTextColor={{color:"#fff"}}
             value={inputValue} // Store the input value in a state variable
             onChangeText={(text) => {
               const filteredText = text.replace(/[^0-9]/g, '');
