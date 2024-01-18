@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { View,Text, Dimensions, StyleSheet } from 'react-native';
 import { TextInput, KeyboardType } from 'react-native';
 import { Button,  } from 'react-native-paper';
-import { getCurrentTime, getFormattedDate, getSetTime } from './utils/utils';
+import { bunchofAlarm, getCurrentTime, getFormattedDate } from './utils/utils';
 const windowHeight = Dimensions.get('window').height;
 
 export default function SetAlarm() {
@@ -14,13 +14,12 @@ export default function SetAlarm() {
     const [inputValue, setInputValue] = useState(null);
     const onChange = (event,currentDate) => {
       setDate(currentDate);
-      setTime(getSetTime(currentDate));
+      setTime(getCurrentTime(currentDate));
     };
     const onChangeEnd = (event,currentDate) => {
       setEndDate(currentDate);
-      setEndTime(getSetTime(currentDate));
+      setEndTime(getCurrentTime(currentDate));
     };
-  
     const showMode = (currentMode) => {
       DateTimePickerAndroid.open({
         value: date,
@@ -37,22 +36,19 @@ export default function SetAlarm() {
         is24Hour: true,
       });
     };
-  
     const showEndDatepicker = () => {
       showModeEnd('date');
     };
-  
     const showEndTimepicker = () => {
       showModeEnd('time');
     };
     const showDatepicker = () => {
       showMode('date');
     };
-  
     const showTimepicker = () => {
       showMode('time');
     };
-    
+
     return (
       <View className="flex-1 bg-black   ">
         <View className="  " style={styles.container} >
@@ -87,16 +83,17 @@ export default function SetAlarm() {
             inputMode="numeric"
             placeholder="Enter frequency"
             placeholderTextColor={{color:"#fff"}}
-            value={inputValue} // Store the input value in a state variable
+            value={inputValue} 
             onChangeText={(text) => {
               const filteredText = text.replace(/[^0-9]/g, '');
-              setInputValue(filteredText); // Update the state with filtered text
+              setInputValue(filteredText); 
             }}
         />
-        </View>  
-            
-    </View>
-        
+        <Button onPress={bunchofAlarm} title="time"  buttonColor='#176a29'
+          mode="outlined" className="m-3" textColor='red' rippleColor="#33dda1"
+          >schedule</Button>
+        </View>   
+    </View> 
     );
   };
 

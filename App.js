@@ -24,7 +24,7 @@ export default function App() {
     <NavigationContainer  >
       <Stack.Navigator initialRouteName="Bunch of alarms" mode="modal"
       screenOptions={{
-        headerStyle: { backgroundColor: "#090909" },
+        headerStyle: { backgroundColor: "#101010" },
         headerTitleStyle: { color: 'green',fontSize:22,fontWeight:"900",} }}
         options={{ headerShown: false }}
       >
