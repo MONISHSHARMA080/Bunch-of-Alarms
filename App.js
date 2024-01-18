@@ -21,12 +21,11 @@ export default function App() {
 
   
   return (
-    <NavigationContainer  theme={scheme === 'dark' ? DarkTheme : DefaultTheme} >
+    <NavigationContainer  >
       <Stack.Navigator initialRouteName="Bunch of alarms" mode="modal"
       screenOptions={{
-        headerMode: 'screen',
         headerStyle: { backgroundColor: "#090909" },
-        headerTitleStyle: { color: 'green',fontSize:26,fontWeight:"900",} }}
+        headerTitleStyle: { color: 'green',fontSize:22,fontWeight:"900",} }}
         options={{ headerShown: false }}
       >
         <Stack.Screen name="Bunch of alarms" component={Main} />

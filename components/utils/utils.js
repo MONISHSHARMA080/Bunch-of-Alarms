@@ -14,6 +14,8 @@ const hours = date.getHours();
 const minutes = date.getMinutes();
 const formattedTime = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}`;
 return formattedTime
-   
+}
 
+export function getFormattedDate(string){
+        return `${string.slice(4)} , ${string.slice(0,3)}`
 }

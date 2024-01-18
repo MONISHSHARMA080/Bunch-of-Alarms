@@ -29,9 +29,9 @@ export  function Plus() {
 const styles = StyleSheet.create({
   addButton: {
     position: 'absolute',
-    bottom: 30, 
+    bottom: 40, 
     left: '50%',
-    transform: [{ translateX: -50 }], // Half of the width of the addButton
+    transform: [{ translateX: -50 }],
     zIndex: 50,
     alignItems: 'center',
     justifyContent: 'center',
