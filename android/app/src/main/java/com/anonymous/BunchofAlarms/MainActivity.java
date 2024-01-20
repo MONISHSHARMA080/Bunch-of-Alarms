@@ -3,6 +3,12 @@ package com.anonymous.BunchofAlarms;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import androidx.annotation.Nullable;
+
+
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
