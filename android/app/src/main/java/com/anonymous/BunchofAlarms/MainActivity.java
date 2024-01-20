@@ -2,13 +2,15 @@ package com.anonymous.BunchofAlarms;
 
 import android.os.Build;
 import android.os.Bundle;
-
+//me
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import androidx.annotation.Nullable;
 
 
+//me
+import com.baekgol.reactnativealarmmanager.util.BootReceiver;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
