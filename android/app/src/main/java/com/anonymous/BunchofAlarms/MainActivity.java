@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 //me
 import com.baekgol.reactnativealarmmanager.util.BootReceiver;
+import com.baekgol.reactnativealarmmanager.AlarmModule;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
