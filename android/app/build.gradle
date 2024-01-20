@@ -10,8 +10,6 @@ def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
 react {
     def commandOutput = ["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute()
 
-def commandOutput = ["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute()
-
 // Check if the command execution was successful
 if (commandOutput.waitFor() == 0) {
     entryFile = file(commandOutput.text.trim())
