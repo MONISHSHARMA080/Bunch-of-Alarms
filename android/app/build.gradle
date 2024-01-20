@@ -10,13 +10,16 @@ def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
 react {
     def commandOutput = ["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute()
 
+def commandOutput = ["node", "-e", "require('expo/scripts/resolveAppEntry')", projectRoot, "android", "absolute"].execute()
+
 // Check if the command execution was successful
-if (commandOutput.exitValue() == 0) {
+if (commandOutput.waitFor() == 0) {
     entryFile = file(commandOutput.text.trim())
 } else {
     // Handle the case where the command execution failed
-    throw new GradleException("Failed to execute command: ${commandOutput}")
+    throw new GradleException("Failed to execute command: ${commandOutput.errorStream.text}")
 }
+
 
     reactNativeDir = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsoluteFile()
     hermesCommand = new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim()).getParentFile().getAbsolutePath() + "/sdks/hermesc/%OS-BIN%/hermesc"
