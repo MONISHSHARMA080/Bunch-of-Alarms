@@ -1,9 +1,6 @@
 {
   "expo": {
     "name": "Bunch-of-Alarms",
-    "plugins": [
-      "@notifee/react-native"
-    ],
     "slug": "Bunch-of-Alarms",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,17 +15,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.monish1.BunchofAlarms"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.monish1.BunchofAlarms"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     }
-    
   }
 }
