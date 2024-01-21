@@ -1,6 +1,9 @@
 {
   "expo": {
     "name": "Bunch-of-Alarms",
+    "plugins": [
+      "@notifee/react-native"
+    ],
     "slug": "Bunch-of-Alarms",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -26,5 +29,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     }
+    
   }
 }
