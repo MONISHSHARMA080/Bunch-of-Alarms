@@ -1,4 +1,6 @@
 import notifee, { IntervalTrigger, TriggerType, TimeUnit } from '@notifee/react-native';
+import * as Device from 'expo-device';
+import * as Notifications from 'expo-notifications';
 
 export function getCurrentTime(date){
     if (date == null){
@@ -25,37 +27,27 @@ export async function bunchofAlarm(){
 // date and time of both in same order and the use a for loop to set multiple alarms 
 // after frequency
 
-    
-// for (const [date, time] of Object.entries(yourDateTimeObject)) {
-for (const i =0 ; i<2;i++ ) {
-    // Build the notification object
-    console.log("+++++++++++++++++++++++++++++++++");
-    const notification = {
-    
-      title: "Your custom notification title", // Customize this
-      body: "Your custom notification message", // Customize this
-      trigger: new IntervalTrigger({ 
-        type: TriggerType.TIME, // Specify trigger type
-        interval: 52,
-        TimeUnit:TimeUnit.SECONDS,
-        initialNotification: { // Specify the initial notification time
-          timestamp: new Date().getTime(), // Use your date and time
-        },
-      }),
-    };
-  
-    // Schedule the notification with notifee
-    try{
-        await notifee.createTriggerNotification(notification);
 
-    }
-    catch (e) {
-        console.log("--------------------------e---------------------");
-        console.log(e);
-        console.log("----------------------e----------------");
-      }
-      
+Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: false,
+      shouldSetBadge: false,
+    }),
+  });
 
-  }   
+  async function schedulePushNotification() {
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: "You've got mail! 📬",
+        body: 'Here is the notification body',
+        data: { data: 'goes here' },
+      },
+      trigger: { seconds: 2 },
+    });
+  }
+
+
+  schedulePushNotification();``
 
 }
