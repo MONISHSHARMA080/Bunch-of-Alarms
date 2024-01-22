@@ -6,12 +6,16 @@ import { Button,  } from 'react-native-paper';
 import { bunchofAlarm, getCurrentTime, getFormattedDate } from './utils/utils';
 const windowHeight = Dimensions.get('window').height;
 
+
 export default function SetAlarm() {
+
+  
     const [date, setDate] = useState(new Date());
     const [time, setTime] = useState(getCurrentTime());
     const [endDate, setEndDate] = useState(new Date());
     const [endTime, setEndTime] = useState(getCurrentTime());
     const [inputValue, setInputValue] = useState(null);
+
     const onChange = (event,currentDate) => {
       setDate(currentDate);
       setTime(getCurrentTime(currentDate));
@@ -89,7 +93,7 @@ export default function SetAlarm() {
           >
             {endTime}
           </Button>
-        <Button onPress={bunchofAlarm} title="time"  buttonColor='#176a29'
+        <Button onPress={() =>bunchofAlarm()} title="time"  buttonColor='#176a29'
           mode="outlined" className="m-3 mt-4" textColor='white' rippleColor="#33dda1"
           
           >schedule</Button>

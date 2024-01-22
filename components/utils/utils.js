@@ -1,4 +1,4 @@
-// import Alarm from 'react-native-alarm-manager';
+import notifee from '@notifee/react-native';
 
 export function getCurrentTime(date){
     if (date == null){
@@ -18,29 +18,52 @@ export function getFormattedDate(string){
 
 
 
-export function bunchofAlarm(){
+export async function bunchofAlarm(){
 
 // give this func a json object ; perform operation to get 
 // date and time of both in same order and the use a for loop to set multiple alarms 
 // after frequency
 
 
-    // const alarm = {
-    //     alarm_time: '23:17:00 2024-01-18',   // HH:mm:00 yyyy-MM-dd
-    //     alarm_title: 'title',
-    //     alarm_text: 'text',
-    //     alarm_sound: 'sound',   // sound.mp3 -- figure a way to get this (random)
-    //     alarm_icon: 'icon',     // icon.png
-    //     alarm_sound_loop: true,
-    //     alarm_vibration: true,
-    //     alarm_noti_removable: true,
-    //     alarm_activate: true
-    //   };
+const smallIconResourceId = 'name-of-a-small-icon';
+
+
+     // Request permissions (required for iOS)
+     await notifee.requestPermission()
+
+     // Create a channel (required for Android)
+     const channelId = await notifee.createChannel({
+       id: 'default',
+       name: 'Default Channel',
+     });
+ 
+     // Display a notification
+     const notificationId = await notifee.displayNotification({
+        id: '123',
+        title: 'Notification Title',
+        body: 'Main body content of the notification',
+        android: {
+          channelId,
+        },
+      });
+
+      await notifee.displayNotification({
+        id: '123',
+        title: 'Updated Notification Title',
+        body: 'Updated main body content of the notification',
+        android: {
+          channelId,
+        },
+      });
+
+      async function cancel(notificationId) {
+        await notifee.cancelNotification(notificationId);
+      }
       
-    //   Alarm.schedule(
-    //     alarm,
-    //     success => console.log("success"),  // success message
-    //     fail => console.log("fail")         // fail message
-    //   );
+      setTimeout(
+        ()=>cancel("123"), 2000
+      )
+
+  
 
 }
