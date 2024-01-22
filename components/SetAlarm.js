@@ -51,7 +51,7 @@ export default function SetAlarm() {
 
     return (
       <View className="flex-1 bg-black   ">
-        <View className="  " style={styles.container} >
+        <View className="top-14" >
           <Text className="text-white font-bold text-base ml-3 " >Select start date</Text>
           <Button  onPress={showDatepicker}  rippleColor="#33dda1"
           mode="outlined" className="m-3" textColor='white' buttonColor='#176a29'
@@ -63,18 +63,6 @@ export default function SetAlarm() {
           mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
           >
             {time}
-          </Button>
-          <Text className="text-white font-bold text-base ml-3" >End date</Text>
-          <Button onPress={showEndDatepicker} title="time"  buttonColor='#176a29'
-          mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
-          >
-            {getFormattedDate(endDate.toDateString())}
-          </Button>
-          <Text className="text-white font-bold text-base ml-3" >End time</Text>
-          <Button onPress={showEndTimepicker} title="time"  buttonColor='#176a29'
-          mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
-          >
-            {endTime}
           </Button>
           <Text className="text-white font-bold text-base ml-3 " >frequency</Text>
           <TextInput
@@ -89,6 +77,18 @@ export default function SetAlarm() {
               setInputValue(filteredText); 
             }}
         />
+          <Text className="text-white font-bold text-base ml-3" >End date</Text>
+          <Button onPress={showEndDatepicker} title="time"  buttonColor='#176a29'
+          mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
+          >
+            {getFormattedDate(endDate.toDateString())}
+          </Button>
+          <Text className="text-white font-bold text-base ml-3" >End time</Text>
+          <Button onPress={showEndTimepicker} title="time"  buttonColor='#176a29'
+          mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
+          >
+            {endTime}
+          </Button>
         <Button onPress={bunchofAlarm} title="time"  buttonColor='#176a29'
           mode="outlined" className="m-3" textColor='red' rippleColor="#33dda1"
           >schedule</Button>
