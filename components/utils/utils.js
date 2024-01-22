@@ -1,4 +1,4 @@
-import notifee from '@notifee/react-native';
+import notifee, { IntervalTrigger, TriggerType, TimeUnit } from '@notifee/react-native';
 
 export function getCurrentTime(date){
     if (date == null){
@@ -20,50 +20,42 @@ export function getFormattedDate(string){
 
 export async function bunchofAlarm(){
 
+
 // give this func a json object ; perform operation to get 
 // date and time of both in same order and the use a for loop to set multiple alarms 
 // after frequency
 
-
-const smallIconResourceId = 'name-of-a-small-icon';
-
-
-     // Request permissions (required for iOS)
-     await notifee.requestPermission()
-
-     // Create a channel (required for Android)
-     const channelId = await notifee.createChannel({
-       id: 'default',
-       name: 'Default Channel',
-     });
- 
-     // Display a notification
-     const notificationId = await notifee.displayNotification({
-        id: '123',
-        title: 'Notification Title',
-        body: 'Main body content of the notification',
-        android: {
-          channelId,
+    
+// for (const [date, time] of Object.entries(yourDateTimeObject)) {
+for (const i =0 ; i<2;i++ ) {
+    // Build the notification object
+    console.log("+++++++++++++++++++++++++++++++++");
+    const notification = {
+    
+      title: "Your custom notification title", // Customize this
+      body: "Your custom notification message", // Customize this
+      trigger: new IntervalTrigger({ 
+        type: TriggerType.TIME, // Specify trigger type
+        interval: 52,
+        TimeUnit:TimeUnit.SECONDS,
+        initialNotification: { // Specify the initial notification time
+          timestamp: new Date().getTime(), // Use your date and time
         },
-      });
+      }),
+    };
+  
+    // Schedule the notification with notifee
+    try{
+        await notifee.createTriggerNotification(notification);
 
-      await notifee.displayNotification({
-        id: '123',
-        title: 'Updated Notification Title',
-        body: 'Updated main body content of the notification',
-        android: {
-          channelId,
-        },
-      });
-
-      async function cancel(notificationId) {
-        await notifee.cancelNotification(notificationId);
+    }
+    catch (e) {
+        console.log("--------------------------e---------------------");
+        console.log(e);
+        console.log("----------------------e----------------");
       }
       
-      setTimeout(
-        ()=>cancel("123"), 2000
-      )
 
-  
+  }   
 
 }

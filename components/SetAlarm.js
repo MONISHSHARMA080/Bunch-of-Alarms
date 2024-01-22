@@ -87,13 +87,13 @@ export default function SetAlarm() {
           >
             {getFormattedDate(endDate.toDateString())}
           </Button>
-          <Text className="text-white font-bold text-base ml-3" >End time</Text>
+          <Text className="text-white font-bold text-base ml-3" >End time  </Text>
           <Button onPress={showEndTimepicker} title="time"  buttonColor='#176a29'
           mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
           >
             {endTime}
           </Button>
-        <Button onPress={() =>bunchofAlarm()} title="time"  buttonColor='#176a29'
+        <Button onPress={bunchofAlarm} title="time"  buttonColor='#176a29'
           mode="outlined" className="m-3 mt-4" textColor='white' rippleColor="#33dda1"
           
           >schedule</Button>
