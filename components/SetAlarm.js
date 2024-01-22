@@ -50,7 +50,7 @@ export default function SetAlarm() {
     };
 
     return (
-      <View className="flex-1 bg-black   ">
+      <View className="flex-1 bg-black p-14 rounded-3xl ">
         <View className="top-14" >
           <Text className="text-white font-bold text-base ml-3 " >Select start date</Text>
           <Button  onPress={showDatepicker}  rippleColor="#33dda1"
@@ -90,7 +90,8 @@ export default function SetAlarm() {
             {endTime}
           </Button>
         <Button onPress={bunchofAlarm} title="time"  buttonColor='#176a29'
-          mode="outlined" className="m-3" textColor='red' rippleColor="#33dda1"
+          mode="outlined" className="m-3 mt-4" textColor='white' rippleColor="#33dda1"
+          
           >schedule</Button>
         </View>   
     </View> 

@@ -34,9 +34,9 @@ import SetAlarm from './SetAlarm';
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    marginTop: 4,
   },
   modalView: {
     margin: 2,
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   modalText: {
-    marginBottom: 15,
+    marginBottom: 5,
     textAlign: 'center',
   },
 });
