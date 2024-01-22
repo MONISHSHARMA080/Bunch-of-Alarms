@@ -51,7 +51,7 @@ export default function SetAlarm() {
 
     return (
       <View className="flex-1 bg-black p-14 rounded-3xl ">
-        <View className="top-14" >
+        <View className="top-1" >
           <Text className="text-white font-bold text-base ml-3 " >Select start date</Text>
           <Button  onPress={showDatepicker}  rippleColor="#33dda1"
           mode="outlined" className="m-3" textColor='white' buttonColor='#176a29'
@@ -101,6 +101,6 @@ export default function SetAlarm() {
 
 const styles = StyleSheet.create({
   container: {
-     top : windowHeight/9
+    //  top : windowHeight/9
   },
 });

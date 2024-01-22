@@ -17,12 +17,14 @@ export default function PlusIcon({props}) {
     <Pressable style={styles.addButton} 
     // onPress={()=>navigation.navigate('Set alarm')}   
     onPress={() => setModalVisible(true)}
-
     >
+
+      
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
+        onBackdropPress={() => this.setModalVisible(false)}
         >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
@@ -35,6 +37,8 @@ export default function PlusIcon({props}) {
           </View>
         </View>
       </Modal>
+
+
       <Plus />
     </Pressable>
   );
