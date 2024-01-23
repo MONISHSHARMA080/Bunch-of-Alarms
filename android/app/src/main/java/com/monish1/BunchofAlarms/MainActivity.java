@@ -12,13 +12,16 @@ import expo.modules.ReactActivityDelegateWrapper;
 
 public class MainActivity extends ReactActivity {
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    // Set the theme to AppTheme BEFORE onCreate to support 
-    // coloring the background, status bar, and navigation bar.
-    // This is required for expo-splash-screen.
-    setTheme(R.style.AppTheme);
-    super.onCreate(null);
-  }
+protected void onCreate(Bundle savedInstanceState) {
+  super.onCreate(savedInstanceState);
+
+  ComponentName receiver = new ComponentName(this, BootReceiver.class);
+  PackageManager packageManager = this.getPackageManager();
+
+  packageManager.setComponentEnabledSetting(receiver,
+          PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+          PackageManager.DONT_KILL_APP);
+}
 
   /**
    * Returns the name of the main component registered from JavaScript.
@@ -35,13 +38,21 @@ public class MainActivity extends ReactActivity {
    * (aka React 18) with two boolean flags.
    */
   @Override
-  protected ReactActivityDelegate createReactActivityDelegate() {
-    return new ReactActivityDelegateWrapper(this, BuildConfig.IS_NEW_ARCHITECTURE_ENABLED, new DefaultReactActivityDelegate(
-        this,
-        getMainComponentName(),
-        // If you opted-in for the New Architecture, we enable the Fabric Renderer.
-        DefaultNewArchitectureEntryPoint.getFabricEnabled()));
-  }
+protected ReactActivityDelegate createReactActivityDelegate() {
+  return new ReactActivityDelegate(this, getMainComponentName()){
+    @Nullable
+    @Override
+    protected Bundle getLaunchOptions() {
+      Intent intent = getIntent();
+      Bundle bundle = intent.getExtras();
+
+      if(intent.getBooleanExtra("notiRemovable", true))
+        AlarmModule.stop(this.getContext());
+
+      return bundle;
+    }
+  };
+}
 
   /**
    * Align the back button behavior with Android S
