@@ -28,65 +28,122 @@ export async function bunchofAlarm(){
 // date and time of both in same order and the use a for loop to set multiple alarms 
 // after frequency
 
-//maing sure thai we have permission to show notification 
-// -----------make this its own function
-// Alert.alert("Muda","MudaMudaMudaMudaMudaMudaMuda")
-Notifications.requestPermissionsAsync()
-.then(
-  status=>{
-    if (status === "granted"){
-      this.showNotification;
-    }
-    else{
-      // Alert.alert("Notification permission not granted","can't show the alarms")
-      console.log("not granted");
-    }
-  }
-)
 
 
-// First, set the handler that will cause the notification
-// to show the alert
+// Notifications.requestPermissionsAsync()
+// .then(
+//   status=>{
+//     if (status.status === "granted"){
+//       this.showNotification;
+//       console.log('====================================');
+//       console.log("hfgffgfgfgfggfgf");
+//       console.log('====================================');
+//     }
+//     else{
+//       // Alert.alert("Notification permission not granted","can't show the alarms")
+//       console.log("not granted");
+//     }
+//   }
+// )
+
+// const targetDate = new Date(2024, 0, 23, 22, 48 ); // January 23, 2024, at 6:04 PM
+// console.log(targetDate.getMinutes());
+// Notifications.scheduleNotificationAsync({
+//   content: {
+//     title: 'Your reminder alarm!',
+//     body: 'This is a reminder for something important.',
+//   },
+//   trigger: {
+//     repeats: false, // Set to true for repeating alarm
+//     date: targetDate, // Trigger at the specified date and time
+//   },
+// }, )
 
 
-await Notifications.scheduleNotificationAsync({
-  content: {
-    title: "You've got mail! 📬",
-    body:"Pikachu"
-  },
-  trigger: {
-    seconds: 2,
-    channelId: 'new-emails',
-  },
+// await Notifications.scheduleNotificationAsync({
+//   content: {
+//     title: "You've got mail! 📬",
+//     sound: 'mySoundFile.wav', // Provide ONLY the base filename
+//   },
+//   trigger: {
+//     seconds: 2,
+//     channelId: 'new-emails',
+//   },
+// });
+
+await notifee.requestPermission();
+
+
+const channelId = await notifee.createChannel({
+  id: 'default',
+  name: 'Default Channel',
 });
 
-const dateString = 'Tue Jan 23 2024 18:54';
-// const timeString = '18:04';
+// await notifee.displayNotification({
+//   title: 'Wake up',
+//   body: 'Main body content of the notification at 13 ',
+//   android: {
+//     channelId,
+//     pressAction: { id: 'default' },
+//   },
+  // trigger: {
+  //   type: TriggerType.TIMESTAMP,
+  //   hour: 1,
+  //   minute: 01,
+  //   year: 2024,
+  //   month: 0, // Note: Month is 0-indexed (January = 0)
+  //   day: 23,
+  // },
 
-const dateObj = new Date(dateString);
-// dateObj.setHours(parseInt(timeString.substring(0, 2)));
-// dateObj.setMinutes(parseInt(timeString.substring(2, 4)));
+// });
 
-// const now = new Date();
-// const triggerTime = Math.max(dateObj.getTime() - now.getTime(), 0); // Ensures non-negative time for future alarms
-const targetDate = new Date(2024, 0, 23, 18, 52); // January 23, 2024, at 6:04 PM
-console.log("+++++++"); // This will print the time in milliseconds until the alarm should trigger
-console.log(targetDate); // This will print the time in milliseconds until the alarm should trigger
-const date = new Date();
-console.log('====================================');
-console.log(date.getMonth());
-console.log('====================================');
-console.log("+++++++++"); // This will print the time in milliseconds until the alarm should trigger
 
-Notifications.scheduleNotificationAsync({
-  content: {
-    title: 'Your reminder alarm!',
-    body: 'This is a reminder for something important on 52 min.',
+const settings = notifee.getNotificationSettings();
+console.log(settings);
+if (settings.android.alarm == AndroidNotificationSetting.ENABLED) {
+  //Create timestamp trigger
+} else {
+  // Show some user information to educate them on what exact alarm permission is,
+  // and why it is necessary for your app functionality, then send them to system preferences:
+  await notifee.openAlarmPermissionSettings();
+}
+
+
+
+
+
+const datee = new Date(Date.now());
+console.log(datee.getTime());
+datee.setHours(1);
+datee.setMinutes(4);
+
+// Create a time-based trigger
+const trigger = {
+  type: TriggerType.TIMESTAMP,
+  timestamp: datee.getTime(), // fire at 11:10am (10 minutes before meeting)
+  alarmManager: true,
+  allowWhileIdle: true,
+};
+
+// Create a trigger notification
+await notifee.createTriggerNotification(
+  {
+    title: 'Meeting with Jane',
+    body: 'Today at 11:20am',
+    android: {
+      channelId: 'your-channel-id',
+    },
   },
-  trigger: {
-    repeats: false, // Set to true for repeating alarm
-    date: targetDate, // Trigger at the specified date and time
-  },})
+  trigger,
+);
+
+
+
+
+
+
+
+
 
 
 }
