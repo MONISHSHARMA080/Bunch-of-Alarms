@@ -79,8 +79,7 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 android {
     ndkVersion rootProject.ext.ndkVersion
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion "30.0.0" 
+    compileSdkVersion android-31
     namespace 'com.monish1.BunchofAlarms'
     defaultConfig {
         applicationId 'com.monish1.BunchofAlarms'
