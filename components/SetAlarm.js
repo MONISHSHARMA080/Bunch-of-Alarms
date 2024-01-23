@@ -60,7 +60,7 @@ export default function SetAlarm() {
           <Button  onPress={showDatepicker}  rippleColor="#33dda1"
           mode="outlined" className="m-3" textColor='white' buttonColor='#176a29'
           >
-              { getFormattedDate(date.toDateString()) }
+              { date.toDateString() }
           </Button>
           <Text className="text-white font-bold text-base ml-3" >Start time</Text>
           <Button onPress={showTimepicker} title="time"  buttonColor='#176a29'
