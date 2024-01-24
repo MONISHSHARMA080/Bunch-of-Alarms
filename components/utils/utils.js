@@ -2,6 +2,7 @@ import notifee, { IntervalTrigger, TriggerType, TimeUnit } from '@notifee/react-
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import { Alert } from 'react-native';
+import { NativeModules } from 'react-native';
 
 export function getCurrentTime(date){
     if (date == null){
@@ -147,3 +148,12 @@ export async function bunchofAlarm(){
 
 
 }
+
+// const AlarmService = NativeModules.AlarmService;
+
+// function setAlarm(dateString, timeString) {
+//     AlarmService.setAlarm(dateString, timeString);
+// }
+
+// // Example usage
+// setAlarm('Jan 23 2024', '18:34');
