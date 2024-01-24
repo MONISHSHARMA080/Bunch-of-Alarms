@@ -27,6 +27,7 @@ export function bunchofAlarm(){
 
 
     // const alarm = {
+        
     //     alarm_time: '23:17:00 2024-01-18',   // HH:mm:00 yyyy-MM-dd
     //     alarm_title: 'title',
     //     alarm_text: 'text',
@@ -36,6 +37,7 @@ export function bunchofAlarm(){
     //     alarm_vibration: true,
     //     alarm_noti_removable: true,
     //     alarm_activate: true
+
     //   };
       
     //   Alarm.schedule(
