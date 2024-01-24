@@ -71,13 +71,13 @@ export async function bunchofAlarm(){
 //   },
 // });
 
-await notifee.requestPermission();
+// await notifee.requestPermission();
 
 
-const channelId = await notifee.createChannel({
-  id: 'default',
-  name: 'Default Channel',
-});
+// const channelId = await notifee.createChannel({
+//   id: 'default',
+//   name: 'Default Channel',
+// });
 
 // await notifee.displayNotification({
 //   title: 'Wake up',
@@ -98,44 +98,44 @@ const channelId = await notifee.createChannel({
 // });
 
 
-const settings = notifee.getNotificationSettings();
-console.log(settings);
-if (settings.android.alarm == AndroidNotificationSetting.ENABLED) {
-  //Create timestamp trigger
-} else {
-  // Show some user information to educate them on what exact alarm permission is,
-  // and why it is necessary for your app functionality, then send them to system preferences:
-  await notifee.openAlarmPermissionSettings();
-}
+// const settings = notifee.getNotificationSettings();
+// console.log(settings);
+// if (settings.android.alarm == AndroidNotificationSetting.ENABLED) {
+//   //Create timestamp trigger
+// } else {
+//   // Show some user information to educate them on what exact alarm permission is,
+//   // and why it is necessary for your app functionality, then send them to system preferences:
+//   await notifee.openAlarmPermissionSettings();
+// }
 
 
 
 
 
-const datee = new Date(Date.now());
-console.log(datee.getTime());
-datee.setHours(1);
-datee.setMinutes(4);
+// const datee = new Date(Date.now());
+// console.log(datee.getTime());
+// datee.setHours(1);
+// datee.setMinutes(4);
 
 // Create a time-based trigger
-const trigger = {
-  type: TriggerType.TIMESTAMP,
-  timestamp: datee.getTime(), // fire at 11:10am (10 minutes before meeting)
-  alarmManager: true,
-  allowWhileIdle: true,
-};
+// const trigger = {
+//   type: TriggerType.TIMESTAMP,
+//   timestamp: datee.getTime(), // fire at 11:10am (10 minutes before meeting)
+//   alarmManager: true,
+//   allowWhileIdle: true,
+// };
 
-// Create a trigger notification
-await notifee.createTriggerNotification(
-  {
-    title: 'Meeting with Jane',
-    body: 'Today at 11:20am',
-    android: {
-      channelId: 'your-channel-id',
-    },
-  },
-  trigger,
-);
+// // Create a trigger notification
+// await notifee.createTriggerNotification(
+//   {
+//     title: 'Meeting with Jane',
+//     body: 'Today at 11:20am',
+//     android: {
+//       channelId: 'your-channel-id',
+//     },
+//   },
+//   trigger,
+// );
 
 
 
