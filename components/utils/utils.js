@@ -1,4 +1,5 @@
-import Alarm from 'react-native-alarm-manager';
+// import Alarm from 'react-native-alarm-manager';
+import { NativeModules } from 'react-native';
 
 export function getCurrentTime(date){
     if (date == null){
@@ -25,22 +26,31 @@ export function bunchofAlarm(){
 // after frequency
 
 
-    const alarm = {
-        alarm_time: '23:17:00 2024-01-18',   // HH:mm:00 yyyy-MM-dd
-        alarm_title: 'title',
-        alarm_text: 'text',
-        alarm_sound: 'sound',   // sound.mp3 -- figure a way to get this (random)
-        alarm_icon: 'icon',     // icon.png
-        alarm_sound_loop: true,
-        alarm_vibration: true,
-        alarm_noti_removable: true,
-        alarm_activate: true
-      };
+    // const alarm = {
+    //     alarm_time: '23:17:00 2024-01-18',   // HH:mm:00 yyyy-MM-dd
+    //     alarm_title: 'title',
+    //     alarm_text: 'text',
+    //     alarm_sound: 'sound',   // sound.mp3 -- figure a way to get this (random)
+    //     alarm_icon: 'icon',     // icon.png
+    //     alarm_sound_loop: true,
+    //     alarm_vibration: true,
+    //     alarm_noti_removable: true,
+    //     alarm_activate: true
+    //   };
       
-      Alarm.schedule(
-        alarm,
-        success => console.log("success"),  // success message
-        fail => console.log("fail")         // fail message
-      );
+    //   Alarm.schedule(
+    //     alarm,
+    //     success => console.log("success"),  // success message
+    //     fail => console.log("fail")         // fail message
+    //   );
 
 }
+
+const AlarmService = NativeModules.AlarmService;
+
+function setAlarm(dateString, timeString) {
+    AlarmService.setAlarm(dateString, timeString);
+}
+
+// Example usage
+setAlarm('Jan 23 2024', '18:34');
