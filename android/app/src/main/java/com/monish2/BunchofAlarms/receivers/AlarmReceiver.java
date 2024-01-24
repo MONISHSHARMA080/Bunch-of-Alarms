@@ -1,4 +1,4 @@
-package com.yourprojectname.receivers;
+package com.monish2.BunchofAlarmse.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

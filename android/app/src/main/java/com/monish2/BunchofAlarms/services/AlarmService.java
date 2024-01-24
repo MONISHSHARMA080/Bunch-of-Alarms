@@ -6,6 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.monish2.BunchofAlarmse.receivers.AlarmReceiver; // Adjust the package path if needed
+
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -13,7 +16,7 @@ import java.util.Date;
 
 public class AlarmService {
 
-    public static final String ALARM_ACTION = "com.yourprojectname.ALARM_ACTION";
+    public static final String ALARM_ACTION = "com.monish2.BunchofAlarmse.ALARM_ACTION";
 
     public static void setAlarm(Context context, String dateString, String timeString) {
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy HH:mm");
