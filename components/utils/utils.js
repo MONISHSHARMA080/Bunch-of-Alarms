@@ -149,11 +149,12 @@ export async function bunchofAlarm(){
 
 }
 
-// const AlarmService = NativeModules.AlarmService;
+const AlarmService = NativeModules.AlarmService;
 
-// function setAlarm(dateString, timeString) {
-//     AlarmService.setAlarm(dateString, timeString);
-// }
 
-// // Example usage
-// setAlarm('Jan 23 2024', '18:34');
+
+// Example usage
+// AlarmService('Jan 23 2024', '18:34');
+console.log('====================================');
+console.log(AlarmService);
+console.log('====================================');

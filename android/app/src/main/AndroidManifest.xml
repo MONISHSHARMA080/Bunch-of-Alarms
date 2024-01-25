@@ -5,6 +5,10 @@
   <uses-permission android:name="android.permission.VIBRATE"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+   <!-- copied from alarm manager -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
   <!-- expo notifiation -->
   <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
   <queries>
