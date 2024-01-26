@@ -18,6 +18,11 @@ import expo.modules.ReactNativeHostWrapper;
 
 import java.util.List;
 
+// added---------
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+// ---------added
+
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
