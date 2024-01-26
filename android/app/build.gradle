@@ -148,7 +148,7 @@ dependencies {
     implementation "androidx.room:room-ktx:2.6.1"
     implementation "androidx.room:room-paging:2.6.1"
     implementation 'androidx.paging:paging-compose:1.0.0-alpha15'
-
+apply plugin: 'kotlin-android'
 // ---------added
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
