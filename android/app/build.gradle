@@ -136,6 +136,9 @@ android {
     }
 }
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     // implementation("com.facebook.react:react-android")
@@ -144,11 +147,11 @@ dependencies {
     //ROOM
      // ROOM
     implementation "androidx.room:room-runtime:2.6.1"
-    kapt "androidx.room:room-compiler:2.6.1"  // Use kapt instead of implementation for annotation processing
+    kapt "androidx.room:room-compiler:2.6.1"
     implementation "androidx.room:room-ktx:2.6.1"
     implementation "androidx.room:room-paging:2.6.1"
     implementation 'androidx.paging:paging-compose:1.0.0-alpha15'
-apply plugin: 'kotlin-android'
+
 // ---------added
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
