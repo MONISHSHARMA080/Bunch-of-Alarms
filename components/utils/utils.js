@@ -4,6 +4,7 @@ import * as Notifications from 'expo-notifications';
 import { Alert } from 'react-native';
 import { NativeModules } from 'react-native';
 
+
 export function getCurrentTime(date){
     if (date == null){
         date = new Date()
@@ -139,22 +140,24 @@ export async function bunchofAlarm(){
 // );
 
 
+const { Alarm } = NativeModules;
+console.log("fired--------------->>>>>>");
+Alarm.schedule(alarmData, 
+  (successMessage) => {
+    console.log(successMessage);
+  },
+  (errorMessage) => {
+    console.log(errorMessage);
+  }
+);
 
 
 
 
+// const Alarm = NativeModules.Alarm;
 
-
-
+// console.log('====================================');
+// console.log(Alarm);
+// console.log('====================================');
 
 }
-
-const AlarmService = NativeModules.AlarmService;
-
-
-
-// Example usage
-// AlarmService('Jan 23 2024', '18:34');
-console.log('====================================');
-console.log(AlarmService);
-console.log('====================================');
