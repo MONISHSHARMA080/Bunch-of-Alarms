@@ -13,14 +13,13 @@ import com.monish1.BunchofAlarms.model.AlarmDto;
 @TypeConverters({RoomTypeConverter.class})
 public abstract class Database extends RoomDatabase {
     public abstract AlarmDao alarmDao();
+
     private static Database instance;
 
-    public static Database getInstance(Context context){
-        if(instance==null){
-            instance = Room.databaseBuilder(context.getApplicationContext(), Database.class,
-                    "alarm.db").build();
+    public static synchronized Database getInstance(Context context){
+        if(instance == null){
+            instance = Room.databaseBuilder(context.getApplicationContext(), Database.class, "alarm.db").build();
         }
-
         return instance;
     }
 }
