@@ -30,6 +30,9 @@ export async function bunchofAlarm(){
 
 
 
+
+
+
 // Notifications.requestPermissionsAsync()
 // .then(
 //   status=>{
