@@ -31,7 +31,21 @@ export async function bunchofAlarm(){
 
 await notifee.requestPermission()
 
-
+PushNotification.configure({
+    // (optional) Called when Token is generated (iOS and Android)
+    onRegister: function (token) {
+      console.log("TOKEN:", token);
+    },
+  
+    // (required) Called when a remote is received or opened, or local notification is opened
+    onNotification: function (notification) {
+      console.log("NOTIFICATION:", notification);
+  
+      // process the notification
+  
+      // (required) Called when a remote is received or opened, or local notification is opened
+      notification.finish(PushNotificationIOS.FetchResult.NoData);
+    },})
 
 
 PushNotification.createChannel(
@@ -39,7 +53,7 @@ PushNotification.createChannel(
     channelId: "channel-id2", // (required)
     channelName: "Alarm ", // (required)
     channelDescription: "notification of alarm ", // (optional) default: undefined.
-    playSound: false, // (optional) default: true
+    playSound: true, // (optional) default: true
     soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
     importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
     vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
@@ -47,20 +61,26 @@ PushNotification.createChannel(
   (created) => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
 );
 
-const time = 60*60;
+const time = 1;
 
 PushNotification.localNotificationSchedule({
   channelId: 'channel-id2', // Use the created channel ID
   title: 'Scheduled Notification',
   message: `Notification Message sent after ${time} `, // (required)
   date: new Date(Date.now() +  1000 *`${time}`), // in 60 secs
-  allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
-
+  allowWhileIdle: true, // (optional) set notification to work while on doze, default: false
+  color: "red", // (optional) default: system default
+  vibrate: true, // (optional) default: true
+  vibration: 500,
   /* Android Only Properties */
-  repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info
-
+  repeatTime: 60 * 1000, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info
+  playSound:true,
+  soundName: "default",
   
 });
+
+
+
 
 
 }
