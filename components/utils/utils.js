@@ -29,37 +29,37 @@ export async function bunchofAlarm(){
 // date and time of both in same order and the use a for loop to set multiple alarms 
 // after frequency
 
+await notifee.requestPermission()
 
 
-// PushNotification.createChannel(
-//   {
-//     channelId: "channel-id", // (required)
-//     channelName: "Alarm ", // (required)
-//     channelDescription: "notification of alarm ", // (optional) default: undefined.
-//     playSound: false, // (optional) default: true
-//     soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
-//     importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
-//     vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
-//   },
-//   (created) => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
-// );
 
 
-// PushNotification.localNotificationSchedule({
-//   channelId: 'your-channel-id2', // Use the created channel ID
-//   title: 'Notification',
-//   message: `Hello! This is your  notification.`,
+PushNotification.createChannel(
+  {
+    channelId: "channel-id", // (required)
+    channelName: "Alarm ", // (required)
+    channelDescription: "notification of alarm ", // (optional) default: undefined.
+    playSound: false, // (optional) default: true
+    soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
+    importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
+    vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
+  },
+  (created) => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
+);
 
-//   message: "My Notification Message", // (required)
-//   date: new Date(Date.now() + 60 * 1000), // in 60 secs
-//   allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
 
-//   /* Android Only Properties */
-//   repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info
+PushNotification.localNotificationSchedule({
+  channelId: 'your-channel-id2', // Use the created channel ID
+  title: 'Scheduled Notification',
+  message: "My Notification Message", // (required)
+  date: new Date(Date.now() + 60 * 1000), // in 60 secs
+  allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
+
+  /* Android Only Properties */
+  repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info
 
   
-// });
-
+});
 
 
 
