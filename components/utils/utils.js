@@ -31,34 +31,34 @@ export async function bunchofAlarm(){
 
 
 
-PushNotification.createChannel(
-  {
-    channelId: "channel-id", // (required)
-    channelName: "Alarm ", // (required)
-    channelDescription: "notification of alarm ", // (optional) default: undefined.
-    playSound: false, // (optional) default: true
-    soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
-    importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
-    vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
-  },
-  (created) => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
-);
+// PushNotification.createChannel(
+//   {
+//     channelId: "channel-id", // (required)
+//     channelName: "Alarm ", // (required)
+//     channelDescription: "notification of alarm ", // (optional) default: undefined.
+//     playSound: false, // (optional) default: true
+//     soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
+//     importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
+//     vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
+//   },
+//   (created) => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
+// );
 
 
-PushNotification.localNotificationSchedule({
-  channelId: 'your-channel-id2', // Use the created channel ID
-  title: 'Notification',
-  message: `Hello! This is your  notification.`,
+// PushNotification.localNotificationSchedule({
+//   channelId: 'your-channel-id2', // Use the created channel ID
+//   title: 'Notification',
+//   message: `Hello! This is your  notification.`,
 
-  message: "My Notification Message", // (required)
-  date: new Date(Date.now() + 60 * 1000), // in 60 secs
-  allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
+//   message: "My Notification Message", // (required)
+//   date: new Date(Date.now() + 60 * 1000), // in 60 secs
+//   allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
 
-  /* Android Only Properties */
-  repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info
+//   /* Android Only Properties */
+//   repeatTime: 1, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info
 
   
-});
+// });
 
 
 
