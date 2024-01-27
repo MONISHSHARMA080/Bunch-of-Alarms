@@ -54,7 +54,7 @@ PushNotification.createChannel(
     channelName: "Alarm ", // (required)
     channelDescription: "notification of alarm ", // (optional) default: undefined.
     playSound: true, // (optional) default: true
-    soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
+    soundName: "castle.gg", // (optional) See `soundName` parameter of `localNotification` function
     importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
     vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
   },
@@ -75,7 +75,7 @@ PushNotification.localNotificationSchedule({
   /* Android Only Properties */
   repeatTime: 60 * 1000, // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info
   playSound:true,
-  soundName: "default",
+  soundName: "castle.gg",
   
 });
 
