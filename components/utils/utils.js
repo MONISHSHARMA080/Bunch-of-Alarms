@@ -36,7 +36,7 @@ await notifee.requestPermission()
 
 PushNotification.createChannel(
   {
-    channelId: "channel-id", // (required)
+    channelId: "channel-id2", // (required)
     channelName: "Alarm ", // (required)
     channelDescription: "notification of alarm ", // (optional) default: undefined.
     playSound: false, // (optional) default: true
@@ -47,12 +47,13 @@ PushNotification.createChannel(
   (created) => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
 );
 
+const time = 60*60;
 
 PushNotification.localNotificationSchedule({
-  channelId: 'your-channel-id2', // Use the created channel ID
+  channelId: 'channel-id2', // Use the created channel ID
   title: 'Scheduled Notification',
-  message: "My Notification Message", // (required)
-  date: new Date(Date.now() + 60 * 1000), // in 60 secs
+  message: `Notification Message sent after ${time} `, // (required)
+  date: new Date(Date.now() +  1000 *`${time}`), // in 60 secs
   allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
 
   /* Android Only Properties */
@@ -60,9 +61,6 @@ PushNotification.localNotificationSchedule({
 
   
 });
-
-
-
 
 
 }
