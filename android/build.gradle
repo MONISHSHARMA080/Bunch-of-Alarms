@@ -2,7 +2,7 @@
 
 buildscript {
     ext {
-        // buildToolsVersion = findProperty('android.buildToolsVersion') ?: '33.0.0'
+        buildToolsVersion = findProperty('android.buildToolsVersion') ?: '33.0.0'
         minSdkVersion = Integer.parseInt(findProperty('android.minSdkVersion') ?: '21')
         compileSdkVersion = 30 
         targetSdkVersion = 31 
@@ -20,6 +20,20 @@ buildscript {
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
         ndkVersion = "23.1.7779620"
     }
+// from stack overflow
+subprojects { subproject ->
+    afterEvaluate{
+        if((subproject.plugins.hasPlugin('android') || subproject.plugins.hasPlugin('android-library'))) {
+            android {
+                compileSdkVersion rootProject.ext.compileSdkVersion
+                buildToolsVersion rootProject.ext.buildToolsVersion
+            }
+        }
+    }
+}
+
+
+
     repositories {
         google()
         mavenCentral()
