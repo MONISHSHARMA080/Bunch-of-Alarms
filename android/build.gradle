@@ -21,16 +21,16 @@ buildscript {
         ndkVersion = "23.1.7779620"
     }
 // from stack overflow
-subprojects { subproject ->
-    afterEvaluate{
-        if((subproject.plugins.hasPlugin('android') || subproject.plugins.hasPlugin('android-library'))) {
-            android {
-                compileSdkVersion rootProject.ext.compileSdkVersion
-                buildToolsVersion rootProject.ext.buildToolsVersion
-            }
-        }
-    }
-}
+// subprojects { subproject ->
+//     afterEvaluate{
+//         if((subproject.plugins.hasPlugin('android') || subproject.plugins.hasPlugin('android-library'))) {
+//             android {
+//                 compileSdkVersion rootProject.ext.compileSdkVersion
+//                 buildToolsVersion rootProject.ext.buildToolsVersion
+//             }
+//         }
+//     }
+// }
 
 
 
@@ -66,10 +66,10 @@ allprojects {
         maven { url "$rootDir/../node_modules/@notifee/react-native/android/libs" } // <- this line
     }
 }
-android {
-    compileSdkVersion 30 // Ensure correct placement and version
-    minSdkVersion Integer.parseInt(findProperty('android.minSdkVersion') ?: '21')
-    targetSdkVersion 31 // Or adjust based on requirements
+// android {
+//     compileSdkVersion 30 // Ensure correct placement and version
+//     minSdkVersion Integer.parseInt(findProperty('android.minSdkVersion') ?: '21')
+//     targetSdkVersion 31 // Or adjust based on requirements
 
     
-}
+// }
