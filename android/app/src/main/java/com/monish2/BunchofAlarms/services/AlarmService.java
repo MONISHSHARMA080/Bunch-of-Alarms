@@ -1,4 +1,4 @@
-package com.monish2.BunchofAlarmse.services;
+package com.monish2.BunchofAlarms.services;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
