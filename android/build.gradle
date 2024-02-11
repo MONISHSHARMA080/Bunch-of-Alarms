@@ -52,3 +52,10 @@ allprojects {
         maven { url "$rootDir/../node_modules/@notifee/react-native/android/libs" } // <- this line
     }
 }
+android {
+    compileSdkVersion 30 // Ensure correct placement and version
+    minSdkVersion Integer.parseInt(findProperty('android.minSdkVersion') ?: '21')
+    targetSdkVersion 31 // Or adjust based on requirements
+
+    
+}
