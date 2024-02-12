@@ -6,7 +6,8 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import androidx.annotation.Nullable;
-import com.monish2.BunchofAlarms.BootReceiver; //see if works
+import com.baekgol.reactnativealarmmanager.util.BootReceiver; // Assuming this is the correct path
+ //see if works
 
 // added
 
