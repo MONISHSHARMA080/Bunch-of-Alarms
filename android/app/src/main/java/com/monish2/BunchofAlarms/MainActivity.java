@@ -7,7 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import androidx.annotation.Nullable;
 import com.baekgol.reactnativealarmmanager.util.BootReceiver; // Assuming this is the correct path
- //see if works
+import com.baekgol.reactnativealarmmanager.AlarmModule;
+//see if works
 
 // added
 
