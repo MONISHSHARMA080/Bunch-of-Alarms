@@ -5,6 +5,9 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+//added
+import com.baekgol.reactnativealarmmanager.util.AlarmReceiver;// tried adding
+//added
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
