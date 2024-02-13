@@ -33,13 +33,10 @@ export function bunchofAlarm(){
 // give this func a json object ; perform operation to get 
 // date and time of both in same order and the use a for loop to set multiple alarms 
 // after frequency
-Alarm.searchAll(
-  success => console.log(success),  // alarm list
-  fail => console.log(fail)         // fail message
-);
+
 
 const alarm = {
-    alarm_time: '10:40:00 2024-02-13',   // HH:mm:00 yyyy-MM-dd
+    alarm_time: '11:40:00 2024-02-13',   // HH:mm:00 yyyy-MM-dd
     alarm_title: 'alarm-title',
     alarm_text: 'text',
     alarm_sound: 'sound',   // sound.mp3
@@ -53,9 +50,13 @@ const alarm = {
   Alarm.schedule(
     alarm,
     success => console.log(success),  // success message
-    fail => console.log(fail)         // fail message
-  );
-
+    fail => {console.log(fail);console.log("failed");}         // fail message
+    );
+    
+    Alarm.searchAll(
+      success => console.log(success),  // alarm list
+      fail => console.log(fail)         // fail message
+    );
 }
 
 // const AlarmService = NativeModules.AlarmService;
