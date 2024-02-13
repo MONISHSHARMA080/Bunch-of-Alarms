@@ -1,6 +1,6 @@
 import {DateTimePickerAndroid} from '@react-native-community/datetimepicker';
 import { useState } from 'react';
-import { View,Text, Dimensions, StyleSheet } from 'react-native';
+import { View,Text, Dimensions, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { TextInput, KeyboardType } from 'react-native';
 import { Button,  } from 'react-native-paper';
 import { bunchofAlarm, getCurrentTime, getFormattedDate } from './utils/utils';
@@ -64,6 +64,24 @@ export default function SetAlarm() {
           >
             {time}
           </Button>
+
+          <Text className="text-white font-bold text-base ml-3 " >frequency</Text>
+          <KeyboardAvoidingView enabled={true} keyboardVerticalOffset={10} >
+          <TextInput
+            className="text-white bg-[#176a29] border-l-stone-300 m-3 p-2 pl-3 rounded-full "
+            label="Number Input"
+            inputMode="numeric"
+            placeholder="Enter frequency"
+            placeholderTextColor={{color:"#fff"}}
+            value={inputValue} 
+            onChangeText={(text) => {
+              const filteredText = text.replace(/[^0-9]/g, '');
+              setInputValue(filteredText); 
+            }}
+            
+        />
+        </KeyboardAvoidingView>
+
           <Text className="text-white font-bold text-base ml-3" >End date</Text>
           <Button onPress={showEndDatepicker} title="time"  buttonColor='#176a29'
           mode="outlined" className="m-3" textColor='white' rippleColor="#33dda1"
@@ -76,19 +94,7 @@ export default function SetAlarm() {
           >
             {endTime}
           </Button>
-          <Text className="text-white font-bold text-base ml-3 " >frequency</Text>
-          <TextInput
-            className="text-white bg-[#176a29] border-l-stone-300 m-3 p-2 pl-3 rounded-full "
-            label="Number Input"
-            inputMode="numeric"
-            placeholder="Enter frequency"
-            placeholderTextColor={{color:"#fff"}}
-            value={inputValue} 
-            onChangeText={(text) => {
-              const filteredText = text.replace(/[^0-9]/g, '');
-              setInputValue(filteredText); 
-            }}
-        />
+         
         <Button onPress={bunchofAlarm} title="time"  buttonColor='#176a29'
           mode="outlined" className="m-3" textColor='red' rippleColor="#33dda1"
           >schedule</Button>

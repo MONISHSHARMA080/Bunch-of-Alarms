@@ -13,11 +13,7 @@ export default function App() {
 
 
   const Stack = createNativeStackNavigator();
-  const scheme = useColorScheme();
-  console.log("---");
-  console.log(scheme);
-  console.log("---");
-
+  // const scheme = useColorScheme();
 
   
   return (
