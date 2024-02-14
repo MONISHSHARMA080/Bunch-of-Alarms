@@ -1,7 +1,7 @@
 // import Alarm from 'react-native-alarm-manager';
 // import react-native-alarm-manager';
 import { NativeEventEmitter, NativeModules } from 'react-native';
-
+import moment from 'moment';
 export function getCurrentTime(date){
     if (date == null){
         date = new Date()
@@ -26,6 +26,12 @@ console.log('====================================');
 console.log("++++++++++++++++++++++++++++++++++++");
 console.log(Alarm);
 console.log('====================================');
+
+
+ const dateToTime = currDate => {
+    return moment(new Date().setMinutes(10)).format('HH:mm:00') + '';
+  };
+
 
 
 export function bunchofAlarm(){
