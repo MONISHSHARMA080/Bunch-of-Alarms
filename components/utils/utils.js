@@ -28,10 +28,10 @@ console.log(Alarm);
 console.log('====================================');
 
 
- const dateToTime = currDate => {
-    return moment(new Date().setMinutes(10)).format('HH:mm:00') + '';
+ 
+  const dateToTime = currDate => {
+    return moment(currDate).format('HH:mm:00') + '';
   };
-
 
 
 export function bunchofAlarm(){
@@ -42,20 +42,20 @@ export function bunchofAlarm(){
 
 
 const alarm = {
-    alarm_time: '11:40:00 2024-02-13',   // HH:mm:00 yyyy-MM-dd
-    alarm_title: 'alarm-title',
+    alarm_time: dateToTime(new Date(2023, 1, 15 , 11, 53, 4)) ,   // HH:mm:00 yyyy-MM-dd
+    alarm_title: 'alarm-title 52',
     alarm_text: 'text',
-    alarm_sound: 'sound',   // sound.mp3
+    alarm_sound: 'alarmclockshort6402',
     alarm_icon: 'icon',     // icon.png
     alarm_sound_loop: true,
     alarm_vibration: true,
-    alarm_noti_removable: true,
+    alarm_noti_removable: false,
     alarm_activate: true
   };
   
   Alarm.schedule(
     alarm,
-    success => console.log(success),  // success message
+    success => console.log(success ,"bfhjfbvrhvbebvfhfrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrre"),  // success message
     fail => {console.log(fail);console.log("failed");}         // fail message
     );
     
