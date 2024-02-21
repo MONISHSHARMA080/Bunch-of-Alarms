@@ -31,7 +31,7 @@ export function bunchofAlarm() {
   // after frequency
 
   const alarm = {
-    alarm_time: "16-30-00 2024-02-20", // HH:mm:00 yyyy-MM-dd
+    alarm_time: "18:30:00 2024-02-21", // HH:mm:00 yyyy-MM-dd
     alarm_title: "alarm-title",
     alarm_text: "alarm text",
     alarm_sound: "cyberalarmssynthesized116358", // sound.mp3
