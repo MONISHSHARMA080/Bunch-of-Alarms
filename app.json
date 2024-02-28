@@ -32,6 +32,18 @@
       "eas": {
         "projectId": "6a1c46c4-6c86-4447-8bda-633d32e5168a"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./local/assets/notification-icon.png",
+          "color": "#ffffff",
+          "sounds": [
+            "./android/app/src/main/res/raw/castle.ogg"
+          ]
+        }
+      ]
+    ]
   }
 }
