@@ -8,9 +8,13 @@ import Dialog from './components/SetAlarm';
 
 
 export default function App() {
-
-
   const Stack = createNativeStackNavigator();
+
+
+
+
+
+  
   
   return (
     <NavigationContainer  >
@@ -26,21 +30,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-// dark (boolean): Whether this is a dark theme or a light theme
-// colors (object): Various colors used by react navigation components:
-
-//     primary (string): The primary color of the app used to tint various elements. Usually you'll want to use your brand color for this.
-//     background (string): The color of various backgrounds, such as background color for the screens.
-
-// const MyTheme = {
-//   dark: false,
-//   colors: {
-//     primary: 'rgb(255, 45, 85)',
-//     background: 'rgb(242, 242, 242)',
-//     card: 'rgb(255, 255, 255)',
-//     text: 'rgb(28, 28, 30)',
-//     border: 'rgb(199, 199, 204)',
-//     notification: 'rgb(255, 69, 58)',
-//   },
-// };
