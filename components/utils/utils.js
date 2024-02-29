@@ -34,35 +34,41 @@ await notifee.requestPermission()
 
 
 
-  Notifications.setNotificationHandler({
-    handleNotification: async () => ({
-      shouldShowAlert: true,
-      shouldPlaySound: true,
-      shouldSetBadge: false,
-    }),
-  });
+  // Notifications.setNotificationHandler({
+  //   handleNotification: async () => ({
+  //     shouldShowAlert: true,
+  //     shouldPlaySound: true,
+  //     shouldSetBadge: false,
+  //   }),
+  // });
 
-  const trigger = new Date(Date.now() + 6 * 1000);
-  // trigger.setMinutes(0);
-  // trigger.setSeconds(0);
+  // const trigger = new Date(Date.now() + 6 * 1000);
+  // // trigger.setMinutes(0);
+  // // trigger.setSeconds(0);
 
-  Notifications.scheduleNotificationAsync({
-    content: {
-      title: `Look at that notification at 10 min `,
-      body: "this will repeat",
-      sound:"piano_taps.ogg",
+  // Notifications.scheduleNotificationAsync({
+  //   content: {
+  //     title: `Look at that notification at 10 min `,
+  //     body: "this will repeat",
+  //     sound:"piano_taps.ogg",
       
-    },
-    trigger
-    // : {
-    //   channelId:"new-notification",
-    //   seconds:3,
-    //   // setMinutes:10
+  //   },
+  //   trigger
+  //   // : {
+  //   //   channelId:"new-notification",
+  //   //   seconds:3,
+  //   //   // setMinutes:10
       
-    //   // repeats:true
-    // },
-  });
-
+  //   //   // repeats:true
+  //   // },
+  // });
+  let date = new Date();
+  date.setDate(date.getDate());
+   let hours = parseInt(time.split(":")[0])
+   let minutes = parseInt(time.split(":")[1])
+  date.setHours(hours, minutes);
+  
+  AlarmClock.createAlarm(date.toISOString(), 'My Custom Alarm');
 
 
 
