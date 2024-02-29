@@ -93,7 +93,7 @@ export default function SetAlarm() {
           >
             {endTime}
           </Button>
-        <Button onPress={bunchofAlarm} title="time"  buttonColor='#176a29'
+        <Button onPress={()=>bunchofAlarm(time)} title="time"  buttonColor='#176a29'
           mode="outlined" className="m-3 mt-4" textColor='white' rippleColor="#33dda1"
           
           >schedule</Button>

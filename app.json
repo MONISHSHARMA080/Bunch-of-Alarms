@@ -40,7 +40,7 @@
           "icon": "./local/assets/notification-icon.png",
           "color": "#ffffff",
           "sounds": [
-            "./android/app/src/main/res/raw/castle.ogg"
+            "./local/assets/piano_taps.ogg"
           ]
         }
       ]

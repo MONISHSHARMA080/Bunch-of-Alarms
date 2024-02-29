@@ -3,6 +3,8 @@ import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import { Alert } from 'react-native';
 import PushNotification,{Importance}  from "react-native-push-notification";
+import AlarmClock from "react-native-alarm-clock";
+
 
 export function getCurrentTime(date){
     if (date == null){
@@ -23,12 +25,12 @@ export function getFormattedDate(string){
 
 
 
-export async function bunchofAlarm() {
+export async function bunchofAlarm(time) {
   // Request permission if not already granted
   await Notifications.getPermissionsAsync()
 
 
-
+await notifee.requestPermission()
 
 
 
@@ -40,18 +42,25 @@ export async function bunchofAlarm() {
     }),
   });
 
+  const trigger = new Date(Date.now() + 6 * 1000);
+  // trigger.setMinutes(0);
+  // trigger.setSeconds(0);
 
   Notifications.scheduleNotificationAsync({
     content: {
-      title: `Look at that notification in 3 `,
+      title: `Look at that notification at 10 min `,
       body: "this will repeat",
-      sound:"castle.ogg"
+      sound:"piano_taps.ogg",
+      
     },
-    trigger: {
-      channelId:"new-notification",
-      seconds:2,
-      repeats:true
-    },
+    trigger
+    // : {
+    //   channelId:"new-notification",
+    //   seconds:3,
+    //   // setMinutes:10
+      
+    //   // repeats:true
+    // },
   });
 
 
