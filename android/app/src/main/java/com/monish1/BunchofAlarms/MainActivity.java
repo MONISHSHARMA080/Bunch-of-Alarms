@@ -28,10 +28,6 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "main";
   }
-   @Override
-  protected String getMainComponentName() {
-    return "AlarmClockExample";
-  }
 
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link
