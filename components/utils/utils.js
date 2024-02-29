@@ -54,7 +54,6 @@ await notifee.requestPermission()
       
     },
     trigger
-    
     // : {
     //   channelId:"new-notification",
     //   seconds:3,
