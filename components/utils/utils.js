@@ -25,7 +25,7 @@ export function getFormattedDate(string){
 
 
 
-export async function bunchofAlarm(time) {
+export async function bunchofAlarm(time,title) {
   // Request permission if not already granted
   await Notifications.getPermissionsAsync()
 
@@ -68,8 +68,17 @@ await notifee.requestPermission()
    let minutes = parseInt(time.split(":")[1])
   date.setHours(hours, minutes);
   
-  AlarmClock.createAlarm(date.toISOString(), 'My Custom Alarm');
+  AlarmClock.createAlarm(date.toISOString(), title);
 
 
 
   }
+
+
+export function check_form_validation(title){
+  if (title.trim() === "" ||title.trim() === null){
+    Alert.alert("Title can't be empty", 'Please enter title .');
+  return false;
+  } 
+  return true;
+}
