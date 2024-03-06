@@ -4,6 +4,7 @@ import * as Notifications from 'expo-notifications';
 import { Alert } from 'react-native';
 import PushNotification,{Importance}  from "react-native-push-notification";
 import AlarmClock from "react-native-alarm-clock";
+import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 export function getCurrentTime(date){
@@ -25,7 +26,7 @@ export function getFormattedDate(string){
 
 
 
-export async function bunchofAlarm(time,title) {
+export async function bunchofAlarm(time, title, endTime, endDate, startDate, inputValue){
   // Request permission if not already granted
   await Notifications.getPermissionsAsync()
 
@@ -67,8 +68,13 @@ await notifee.requestPermission()
    let hours = parseInt(time.split(":")[0])
    let minutes = parseInt(time.split(":")[1])
   date.setHours(hours, minutes);
-  
-  AlarmClock.createAlarm(date.toISOString(), title);
+  setInitialDate(startDate,date);
+
+  // after setting initial date we should set the alarm for the time and then we should keep dooing it in the loop 
+  // or to optimize performance we can use kotlin to counter performance loss
+
+  // console.log(date.toISOString()+"++++++++++++++++++++++++++++++++")
+  // AlarmClock.createAlarm(date.toISOString(), title);
 
 
 
@@ -82,3 +88,6 @@ export function check_form_validation(title){
   } 
   return true;
 }
+ export function setInitialDate(startDate , dateObjectToAssignTo){
+   date.setFullYear(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+  }

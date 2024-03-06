@@ -3,7 +3,12 @@ import { useState } from "react";
 import { View, Text, Dimensions, StyleSheet, Alert } from "react-native";
 import { TextInput, KeyboardType } from "react-native";
 import { Button } from "react-native-paper";
-import { bunchofAlarm, check_form_validation, getCurrentTime, getFormattedDate } from "./utils/utils";
+import {
+  bunchofAlarm,
+  check_form_validation,
+  getCurrentTime,
+  getFormattedDate,
+} from "./utils/utils";
 const windowHeight = Dimensions.get("window").height;
 
 export default function SetAlarm() {
@@ -12,7 +17,7 @@ export default function SetAlarm() {
   const [endDate, setEndDate] = useState(new Date());
   const [endTime, setEndTime] = useState(getCurrentTime());
   const [inputValue, setInputValue] = useState(null);
-  const [title, setTitle] = useState("Alarm-title");
+  const [title, setTitle] = useState("");
   // const [formValidated, setFormValidated] = useState(false);
 
   const onChange = (event, currentDate) => {
@@ -106,13 +111,12 @@ export default function SetAlarm() {
           placeholderTextColor={{ color: "#fff" }}
           value={title}
           onChangeText={(text) => {
-           
-              setTimeout(()=>{
-                if (text.trim() === "" ||text.trim() === null){
-                  Alert.alert("Title can't be empty", 'Please enter title .');
-                } 
-              },1000 * 3)
-            
+            setTimeout(() => {
+              if (text.trim() === "" || text.trim() === null) {
+                Alert.alert("Title can't be empty", "Please enter title .");
+              }
+            }, 1000 * 3);
+
             setTitle(text);
           }}
         />
@@ -141,7 +145,9 @@ export default function SetAlarm() {
           {endTime}
         </Button>
         <Button
-          onPress={() =>{ check_form_validation(title) ? bunchofAlarm(time,title) : null }}
+          onPress={() => {
+            check_form_validation(title) ? bunchofAlarm(time, title, endTime, endDate, date, inputValue) : null;
+          }}
           title="time"
           buttonColor="#176a29"
           mode="outlined"
