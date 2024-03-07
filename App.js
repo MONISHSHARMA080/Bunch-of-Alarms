@@ -10,10 +10,6 @@ import Dialog from './components/SetAlarm';
 export default function App() {
   const Stack = createNativeStackNavigator();
 
-
-
-
-
   
   
   return (

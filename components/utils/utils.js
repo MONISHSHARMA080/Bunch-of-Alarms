@@ -42,8 +42,19 @@ export async function bunchofAlarm(
   date.setDate(date.getDate());
   let hours = parseInt(time.split(":")[0]);
   let minutes = parseInt(time.split(":")[1]);
-  date.setHours(hours, minutes);
-  setInitialDate(startDate,date);
+  setInitialDate(startDate, date);
+
+  let date1 = date
+  date1.setHours(hours, minutes);
+  AlarmClock.createAlarm(date1.toISOString(), title);
+  console.log(date1.toString());
+
+  // Creating a new Date object for the second alarm
+  let date2 = new Date(date1.setHours(hours, minutes + 3));  // Clone the first date
+
+  // Setting the second alarm
+  AlarmClock.createAlarm(date2.toISOString(), title);
+  console.log(date2.toString());
   // setAlarmfromStartToEndDate(date, endDate)
   // after setting initial date we should set the alarm for the time and then we should keep dooing it in the loop
   // or to optimize performance we can use kotlin to counter performance loss
@@ -51,12 +62,20 @@ export async function bunchofAlarm(
   // AlarmClock.createAlarm(date.toISOString(), title);
 }
 
-export function setAlarmfromStartToEndDate( time, title, endTime, endDate, startDate, inputValue, date){
-let a = true
-  while(a === true){
-     AlarmClock.createAlarm(date.toISOString(), title);
-     date
-  }  
+export function setAlarmfromStartToEndDate(
+  time,
+  title,
+  endTime,
+  endDate,
+  startDate,
+  inputValue,
+  date,
+) {
+  let a = true;
+  while (a === true) {
+    AlarmClock.createAlarm(date.toISOString(), title);
+    date;
+  }
 }
 
 export function setInitialDate(startDate, dateObjectToAssignTo) {
