@@ -8,7 +8,7 @@ import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import { Alert } from "react-native";
 import PushNotification, { Importance } from "react-native-push-notification";
-import AlarmClock from "react-native-alarm-clock";
+// import AlarmClock from "react-native-alarm-clock";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 // import { setAlarm, SetAlarmParams } from 'expo-alarm';
 import { NativeModules } from 'react-native';
@@ -40,19 +40,19 @@ export async function bunchofAlarm(
   await Notifications.getPermissionsAsync();
 
   await notifee.requestPermission();
-//   const { AlarmClock } = NativeModules;
-// console.log("AlarmClock ++++++++++++++++++++++++++++++");
-// console.log(AlarmClock );
+  const { AlarmClock } = NativeModules;
+console.log("AlarmClock ++++++++++++++++++++++++++++++");
+console.log(AlarmClock.createMultipleAlarms );
   let date = new Date();
   date.setDate(date.getDate());
   let hours = parseInt(time.split(":")[0]);
   let minutes = parseInt(time.split(":")[1]);
   date.setHours(hours, minutes);
   setInitialDate(startDate, date);
-  AlarmClock.createAlarm(date.toISOString(), title);
+  AlarmClock.createMultipleAlarms(date.toISOString(), title);
   // console.log(date.toString());
   // setTimeOnEndDate(endDate, endTime)
-  AlarmClock.createMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title )
+  // AlarmClock.createMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title )
 
 
 

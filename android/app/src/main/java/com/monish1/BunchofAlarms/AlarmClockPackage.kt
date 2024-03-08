@@ -13,7 +13,7 @@ import java.util.Arrays
 import java.util.Collections
 
 
-class MyAppPackage : ReactPackage {
+class AlarmClockModule : ReactPackage {
 
     override fun createViewManagers(
         reactContext: ReactApplicationContext
