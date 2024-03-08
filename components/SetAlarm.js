@@ -12,6 +12,7 @@ import {
 const windowHeight = Dimensions.get("window").height;
 
 export default function SetAlarm() {
+  
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(getCurrentTime());
   const [endDate, setEndDate] = useState(new Date());

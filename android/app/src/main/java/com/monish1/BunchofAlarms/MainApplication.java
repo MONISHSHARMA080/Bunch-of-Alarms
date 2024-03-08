@@ -20,6 +20,7 @@ import java.util.List;
 
 // added---------
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+import com.monish1.BunchofAlarms.AlarmClockModule;
 // ---------added
 
 
@@ -38,6 +39,7 @@ public class MainApplication extends Application implements ReactApplication {
         List<ReactPackage> packages = new PackageList(this).getPackages();
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
+         packages.add(new AlarmClockModule());
         return packages;
       }
 
