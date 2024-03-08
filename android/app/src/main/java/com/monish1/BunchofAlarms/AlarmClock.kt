@@ -41,7 +41,7 @@ class AlarmClockModule(reactContext: ReactApplicationContext) : ReactContextBase
 
         Log.i("[RNAlarmClock]", "Reminder created with ID: $id")
     }
-}
+
 
  @ReactMethod
     fun createMultipleAlarms(startIsoDate: String, endIsoDate: String, intervalMinutes: Int, name: String) {
@@ -69,5 +69,6 @@ class AlarmClockModule(reactContext: ReactApplicationContext) : ReactContextBase
 
         Log.i("[RNAlarmClock]", "Multiple reminders created")
     }
+
 
 }
