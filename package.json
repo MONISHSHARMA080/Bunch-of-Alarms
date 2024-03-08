@@ -15,6 +15,7 @@
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
     "expo": "~49.0.15",
+    "expo-alarm": "^0.1.1",
     "expo-dev-client": "~2.4.13",
     "expo-device": "~5.4.0",
     "expo-notifications": "~0.20.1",
