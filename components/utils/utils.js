@@ -10,7 +10,7 @@ import { Alert } from "react-native";
 import PushNotification, { Importance } from "react-native-push-notification";
 import AlarmClock from "react-native-alarm-clock";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
-import { setAlarm, SetAlarmParams } from 'expo-alarm';
+// import { setAlarm, SetAlarmParams } from 'expo-alarm';
 
 export function getCurrentTime(date) {
   if (date == null) {
@@ -45,43 +45,53 @@ export async function bunchofAlarm(
   let minutes = parseInt(time.split(":")[1]);
   date.setHours(hours, minutes);
   setInitialDate(startDate, date);
-  AlarmClock.createAlarm(date.toISOString(), title);
-  console.log(date.toString())
- 
-    setTimeout(() => {
-    let date2 = new Date(date);
-    date2.setHours(date.getHours() , date.getMinutes() + 10);
-    AlarmClock.createAlarm(date2.toISOString(), title);
-    console.log(date2.toString());
-  }, 30);
-  setTimeout(() => {
-    let date2 = new Date(date);
-    date2.setHours(date.getHours() , date.getMinutes() + 10);
-    AlarmClock.createAlarm(date2.toISOString(), title);
-    console.log(date2.toString());
-  }, 30);
+  // AlarmClock.createAlarm(date.toISOString(), title);
+  // console.log(date.toString());
+  setTimeOnEndDate(endDate, endTime)
+  AlarmClock.createMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title )
+
+  //
+  // setTimeout(() => {
+  //   let date2 = new Date(date);
+  //   date2.setHours(date.getHours(), date.getMinutes() + 10);
+  //   AlarmClock.createAlarm(date2.toISOString(), title);
+  //   console.log(date2.toString());
+  // }, 30);
+  // setTimeout(() => {
+  //   let date2 = new Date(date);
+  //   date2.setHours(date.getHours(), date.getMinutes() + 10);
+  //   AlarmClock.createAlarm(date2.toISOString(), title);
+  //   console.log(date2.toString());
+  // }, 30);
   // setAlarmfromStartToEndDate(date, endDate)
   // after setting initial date we should set the alarm for the time and then we should keep dooing it in the loop
   // or to optimize performance we can use kotlin to counter performance loss
 
   // AlarmClock.createAlarm(date.toISOString(), title);
 }
-
-export function setAlarmfromStartToEndDate(
-  time,
-  title,
-  endTime,
-  endDate,
-  startDate,
-  inputValue,
-  date,
-) {
-  let a = true;
-  while (a === true) {
-    AlarmClock.createAlarm(date.toISOString(), title);
-    date;
-  }
+export function setTimeOnEndDate(endDate, endTime){
+  // console.log("+==============++++++++++++++++++++++++++++================")
+  // console.log(endTime)
+  // console.log(typeof(endTime));
+  endDate.setHours(parseInt(endTime.split(":")[0]), parseInt(endTime.split(":")[1]))
+  console.log("endDate----------",endDate.toISOString());
 }
+
+// export function setAlarmfromStartToEndDate(
+//   time,
+//   title,
+//   endTime,
+//   endDate,
+//   startDate,
+//   inputValue,
+//   date,
+// ) {
+//   let a = true;
+//   while (a === true) {
+//     AlarmClock.createAlarm(date.toISOString(), title);
+//     date;
+//   }
+// }
 
 export function setInitialDate(startDate, dateObjectToAssignTo) {
   dateObjectToAssignTo.setFullYear(
