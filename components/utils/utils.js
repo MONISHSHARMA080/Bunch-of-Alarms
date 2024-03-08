@@ -1,10 +1,3 @@
-import notifee, {
-  IntervalTrigger,
-  TimeUnit,
-  TimestampTrigger,
-  TriggerType,
-} from "@notifee/react-native";
-import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
 import { Alert } from "react-native";
 import PushNotification, { Importance } from "react-native-push-notification";
@@ -36,33 +29,38 @@ export async function bunchofAlarm(
   startDate,
   inputValue,
 ) {
-  // Request permission if not already granted
-  await Notifications.getPermissionsAsync();
-
-  await notifee.requestPermission();
-  
   let date = new Date();
   date.setDate(date.getDate());
   let hours = parseInt(time.split(":")[0]);
   let minutes = parseInt(time.split(":")[1]);
   date.setHours(hours, minutes);
   setInitialDate(startDate, date);
-
+  
   const { AlarmClock } = NativeModules;
-console.log("AlarmClock ++++++++++++++++++++++++++++++");
-console.log(AlarmClock);
+  console.log("AlarmClock ++++++++++++++++++++++++++++++");
   // AlarmClock.createAlarm(date.toISOString(), title);
-  // AlarmClock.createMultipleAlarms(date.toISOString(), title);
+
+ await AlarmClock.createAlarm(date.toISOString(), title);
+  date.setHours(hours, minutes +3);
+  console.log(date.toLocaleTimeString());
+ await AlarmClock.createAlarm(date.toISOString(), title);
+
+  // AlarmClock.createMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title);
+
 
   // console.log(date.toString());
   // setTimeOnEndDate(endDate, endTime)
-  // AlarmClock.createMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title )
+  // AlarmClock.creaxteMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title )
 
 
 
 
 
 
+  // Request permission if not already granted
+  // await Notifications.getPermissionsAsync();
+  // await notifee.requestPermission();
+  
 
 
 
@@ -70,7 +68,7 @@ console.log(AlarmClock);
   // setAlarmfromStartToEndDate(date, endDate)
   // after setting initial date we should set the alarm for the time and then we should keep dooing it in the loop
   // or to optimize performance we can use kotlin to counter performance loss
-
+  
   // AlarmClock.createAlarm(date.toISOString(), title);
 }
 export function setTimeOnEndDate(endDate, endTime){
