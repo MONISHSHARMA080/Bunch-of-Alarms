@@ -21,7 +21,7 @@ class AlarmClockModule : ReactPackage {
 
     override fun createNativeModules(
         reactContext: ReactApplicationContext
-    ): MutableList<NativeModule> = listOf(CalendarModule(reactContext)).toMutableList()
+    ): MutableList<NativeModule> = listOf(AlarmClockModule(reactContext)).toMutableList()
 
     override fun getPackages(): List<ReactPackage> =
     PackageList(this).packages.apply {

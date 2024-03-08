@@ -40,16 +40,20 @@ export async function bunchofAlarm(
   await Notifications.getPermissionsAsync();
 
   await notifee.requestPermission();
-  const { AlarmClock } = NativeModules;
-console.log("AlarmClock ++++++++++++++++++++++++++++++");
-console.log(AlarmClock.createMultipleAlarms );
+  
   let date = new Date();
   date.setDate(date.getDate());
   let hours = parseInt(time.split(":")[0]);
   let minutes = parseInt(time.split(":")[1]);
   date.setHours(hours, minutes);
   setInitialDate(startDate, date);
-  AlarmClock.createMultipleAlarms(date.toISOString(), title);
+
+  const { AlarmClock } = NativeModules;
+console.log("AlarmClock ++++++++++++++++++++++++++++++");
+console.log(AlarmClock);
+  // AlarmClock.createAlarm(date.toISOString(), title);
+  // AlarmClock.createMultipleAlarms(date.toISOString(), title);
+
   // console.log(date.toString());
   // setTimeOnEndDate(endDate, endTime)
   // AlarmClock.createMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title )
