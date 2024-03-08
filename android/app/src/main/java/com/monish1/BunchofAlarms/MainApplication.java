@@ -20,7 +20,7 @@ import java.util.List;
 
 // added---------
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import AlarmClock
+import com.monish1.BunchofAlarms.AlarmClock;
 // ---------added
 
 
