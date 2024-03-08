@@ -1,4 +1,4 @@
-package com.monish1.BunchofAlarms
+package BunchofAlarms
 
 import android.view.View
 import com.facebook.react.ReactPackage
@@ -13,8 +13,8 @@ import java.util.Arrays
 import java.util.Collections
 
 
-class AlarmClockModule : ReactPackage {
-
+class AlarmClockPackage : ReactPackage {
+ 
     override fun createViewManagers(
         reactContext: ReactApplicationContext
     ): MutableList<ViewManager<View, ReactShadowNode<*>>> = mutableListOf()
@@ -22,11 +22,4 @@ class AlarmClockModule : ReactPackage {
     override fun createNativeModules(
         reactContext: ReactApplicationContext
     ): MutableList<NativeModule> = listOf(AlarmClockModule(reactContext)).toMutableList()
-
-    override fun getPackages(): List<ReactPackage> =
-    PackageList(this).packages.apply {
-        // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(new MyReactNativePackage());
-        add(MyAppPackage())
-    }
 }

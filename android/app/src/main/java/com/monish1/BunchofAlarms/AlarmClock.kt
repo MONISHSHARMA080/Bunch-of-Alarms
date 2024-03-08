@@ -1,4 +1,4 @@
-package com.monish1.BunchofAlarms
+package com.AlarmClock
 
 import android.content.Intent
 import android.provider.AlarmClock

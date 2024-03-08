@@ -38,12 +38,13 @@ export async function bunchofAlarm(
   
   const { AlarmClock } = NativeModules;
   console.log("AlarmClock ++++++++++++++++++++++++++++++");
+  console.log(AlarmClock);
   // AlarmClock.createAlarm(date.toISOString(), title);
 
- await AlarmClock.createAlarm(date.toISOString(), title);
+ AlarmClock.createAlarm(date.toISOString(), title);
   date.setHours(hours, minutes +3);
   console.log(date.toLocaleTimeString());
- await AlarmClock.createAlarm(date.toISOString(), title);
+ AlarmClock.createAlarm(date.toISOString(), title);
 
   // AlarmClock.createMultipleAlarms(date.toISOString(), endDate.toISOString(), inputValue, title);
 
