@@ -4,9 +4,9 @@
 node_modules/
 
 #apks
-.apks
-.apks
-.aab
+*.apks
+*.apks
+*.aab
 
 # Expo
 .expo/
