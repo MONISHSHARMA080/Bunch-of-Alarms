@@ -1,44 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, NativeModule, NativeModules } from 'react-native';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import {NavigationContainer}from '@react-navigation/native';
+// import { useColorScheme } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Main from './components/Main';
+import Dialog from './components/SetAlarm';
 
-
-// const {CalendarModule} = NativeModules;
 
 export default function App() {
-  const {CalendarModule} = NativeModules;
+  const Stack = createNativeStackNavigator();
 
-  const [result, setResult] = useState("");
-
-  const sayMyNameAsync = async () => {
-    try {
-      const nameResult = await CalendarModule.sayMyName("MeetingConference Room");
-      setResult(nameResult);
-      console.log(nameResult);
-    } catch (error) {
-      console.error("Error calling sayMyName:", error);
-    }
-  };
-
-  useEffect(() => {
-    sayMyNameAsync();
-  }, []);
-
+  
+  
   return (
-    <View style={styles.container}>
-      <Text style={{color:"#FFFFFF",fontSize:19}}
-      onPress={sayMyNameAsync}
-      >App.js {result} </Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer  >
+      <Stack.Navigator initialRouteName="Bunch of alarms" mode="modal"
+      screenOptions={{
+        headerStyle: { backgroundColor: "#101010" },
+        headerTitleStyle: { color: 'green',fontSize:22,fontWeight:"900",} }}
+        options={{ headerShown: true }}
+      >
+        <Stack.Screen name="Bunch of alarms" component={Main} />
+        <Stack.Screen name="Set alarm" component={Dialog} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
