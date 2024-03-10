@@ -18,13 +18,9 @@ import expo.modules.ReactNativeHostWrapper;
 
 import java.util.List;
 
-// added---------
-
-import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import com.monish1.BunchofAlarms.AlarmClockModule;
-import com.monish1.BunchofAlarms.AlarmClockModulePackage;
-
-// ---------added
+// added -----
+import com.monish1.BunchofAlarms.MyAppPackage;
+// added -----
 
 
 public class MainApplication extends Application implements ReactApplication {
@@ -42,7 +38,8 @@ public class MainApplication extends Application implements ReactApplication {
         List<ReactPackage> packages = new PackageList(this).getPackages();
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
-        // packages.add(new AlarmClockModulePackage());  // removing as i think it is automatically added later
+          packages.add(new MyAppPackage());
+          // tried to copy file 
         return packages;
       }
 

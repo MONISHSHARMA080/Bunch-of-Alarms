@@ -147,7 +147,8 @@ export default function SetAlarm() {
         </Button>
         <Button
           onPress={() => {
-            check_form_validation(title) ? bunchofAlarm(time, title, endTime, endDate, date, inputValue) : null;
+            // check_form_validation(title) ? bunchofAlarm(time, title, endTime, endDate, date, inputValue) : null;
+            bunchofAlarm(time, title, endTime, endDate, date, inputValue)
           }}
           title="time"
           buttonColor="#176a29"

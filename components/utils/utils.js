@@ -31,7 +31,7 @@ export async function bunchofAlarm(
 ) {
 
 // const a = async function (){
-//   await AlarmClock.ccreateMultipleAlarms()
+//   await AlarmClock.createMultipleAlarms()
 // }
 // a()
 
@@ -42,10 +42,10 @@ export async function bunchofAlarm(
   date.setHours(hours, minutes);
   setInitialDate(startDate, date);
   
-  const { AlarmClock, AlarmClockModule } = NativeModules;
+  const { AlarmClock, CalendarModule } = NativeModules;
   console.log("AlarmClock ++++++++++++++++++++++++++++++");
-  console.log(AlarmClock);
-  // await AlarmClock.createAlarm(date.toISOString(), title);
+  // console.log(CalendarModule);
+  await AlarmClock.createAlarm(date.toISOString(), title);
   // await AlarmClock.loadModel();
 //  AlarmClock.createAlarm(date.toISOString(), title);
 //   date.setHours(hours, minutes +3);
