@@ -45,10 +45,8 @@ export async function bunchofAlarm(
   const { AlarmClock, AlarmClockModule } = NativeModules;
   console.log("AlarmClock ++++++++++++++++++++++++++++++");
   console.log(AlarmClock);
-  await AlarmClock.createAlarm(date.toISOString(), title);
+  // await AlarmClock.createAlarm(date.toISOString(), title);
   // await AlarmClock.loadModel();
-  console.log("====================",{NativeModules},AlarmClockModule);
-
 //  AlarmClock.createAlarm(date.toISOString(), title);
 //   date.setHours(hours, minutes +3);
 //   console.log(date.toLocaleTimeString());
