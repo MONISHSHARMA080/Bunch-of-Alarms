@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="83b08eb7-5e46-4e8b-9d8f-9fd12cbaca76" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/monish1/BunchofAlarms/AlarmClock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/monish1/BunchofAlarms/AlarmClock.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/monish1/BunchofAlarms/AlarmClockPackage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/monish1/BunchofAlarms/AlarmClockPackage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/com/monish1/BunchofAlarms/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/java/com/monish1/BunchofAlarms/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/gold.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/leapfrog.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/morning_bell.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/piano_taps.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sprinkle.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/react-native-alarm-clock/android/src/main/java/com/reactnativealarmclock/AlarmClockModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/react-native-alarm-clock/android/src/main/java/com/reactnativealarmclock/AlarmClockModule.kt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2dSzdMkyVaxag2cFMXJ3yqo4DGL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "react-native-push-notification",
+    "last_opened_file_path": "/home/monish/code/2/Bunch-of-Alarms/android"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83b08eb7-5e46-4e8b-9d8f-9fd12cbaca76" name="Changes" comment="" />
+      <created>1710016354059</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710016354059</updated>
+    </task>
+    <servers />
+  </component>
+</project>
