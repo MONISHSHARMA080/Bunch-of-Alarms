@@ -1,4 +1,4 @@
-package BunchofAlarms
+package com.monish1.BunchofAlarms
 
 import android.view.View
 import com.facebook.react.ReactPackage
@@ -13,8 +13,8 @@ import java.util.Arrays
 import java.util.Collections
 
 
-class AlarmClockPackage : ReactPackage {
- 
+class AlarmClockModulePackage : ReactPackage {
+
     override fun createViewManagers(
         reactContext: ReactApplicationContext
     ): MutableList<ViewManager<View, ReactShadowNode<*>>> = mutableListOf()
@@ -22,4 +22,5 @@ class AlarmClockPackage : ReactPackage {
     override fun createNativeModules(
         reactContext: ReactApplicationContext
     ): MutableList<NativeModule> = listOf(AlarmClockModule(reactContext)).toMutableList()
+    
 }

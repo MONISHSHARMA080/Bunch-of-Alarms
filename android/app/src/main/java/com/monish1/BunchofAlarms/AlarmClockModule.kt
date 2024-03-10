@@ -1,4 +1,5 @@
-package com.AlarmClock
+package com.monish1.BunchofAlarms
+
 
 import android.content.Intent
 import android.provider.AlarmClock
@@ -11,8 +12,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AlarmClockModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+    
     override fun getName(): String {
         return "AlarmClock"
+    }
+
+    // trisl func
+     @ReactMethod
+    fun loadModel(path: String) {
+        Log.d("GLBModule", "Loading $path")
     }
 
     @ReactMethod
@@ -23,16 +31,21 @@ class AlarmClockModule(reactContext: ReactApplicationContext) : ReactContextBase
             df1.timeZone = tz
             val date: Date = df1.parse(isoDate)
 
+            val calendar = Calendar.getInstance()
+            calendar.time = date
+
             val i = Intent(AlarmClock.ACTION_SET_ALARM)
             i.putExtra(AlarmClock.EXTRA_SKIP_UI, true)
             i.putExtra(AlarmClock.EXTRA_MESSAGE, name)
-            i.putExtra(AlarmClock.EXTRA_HOUR, date.hours)
-            i.putExtra(AlarmClock.EXTRA_MINUTES, date.minutes)
+            i.putExtra(AlarmClock.EXTRA_HOUR, calendar.get(Calendar.HOUR_OF_DAY))
+            i.putExtra(AlarmClock.EXTRA_MINUTES, calendar.get(Calendar.MINUTE))
 
             // Use a unique ID for each alarm
-            i.putExtra(AlarmClock.EXTRA_ALARM_ID, id)
+            // i.putExtra(AlarmClock.EXTRA_ALARM_ID, id)
 
             currentActivity?.startActivity(i)
+            Log.i("[RNAlarmClock]", "Reminder created with ID: $id")
+            
         } catch (e: Exception) {
             e.printStackTrace()
             Log.e("[RNAlarmClock]", "Error creating reminder")
@@ -54,12 +67,14 @@ class AlarmClockModule(reactContext: ReactApplicationContext) : ReactContextBase
             val endDate: Date = df1.parse(endIsoDate)
 
             var currentDate = startDate
+            var id :Int = 1
             while (currentDate.before(endDate)) {
-                createAlarm(df1.format(currentDate), name)
+                createAlarm(id,df1.format(currentDate), name)
                 val calendar = Calendar.getInstance()
                 calendar.time = currentDate
                 calendar.add(Calendar.MINUTE, intervalMinutes)
                 currentDate = calendar.time
+                id = id + 1
             }
         } catch (e: Exception) {
             e.printStackTrace()
