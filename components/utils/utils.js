@@ -37,15 +37,44 @@ export async function bunchofAlarm(
 
   let date = new Date();
   date.setDate(date.getDate());
-  let hours = parseInt(time.split(":")[0]);
-  let minutes = parseInt(time.split(":")[1]);
-  date.setHours(hours, minutes);
-  setInitialDate(startDate, date);
+  // let hours = parseInt(time.split(":")[0]);
+  // let minutes = parseInt(time.split(":")[1]);
+  // date.setHours(hours, minutes);
+  setTimeOnDateObject(startDate,time)
+  setTimeOnDateObject(endDate, endTime)
+
+
+
+
+
+  function setTimeOnDateObject(date ,time){
+    let hours = parseInt(time.split(":")[0]);
+    let minutes = parseInt(time.split(":")[1]);
+    date.setHours(hours, minutes);
+  }
+
+
+
+
+
+
+
+
+
+  const { AlarmModule, CalendarModule } = NativeModules;
+  console.log(CalendarModule);
   
-  const { AlarmModule } = NativeModules;
-  console.log("AlarmClock ++++++++++++++++++++++++++++++",AlarmModule);
-  let a = await AlarmModule.sayHello()
-  setTimeout(()=>console.log(a),3)
+  const setAlarms = async (startDate, endDate , inputValue, name) => {
+    try {
+      const result = await CalendarModule.createAlarmsInRange(startDate, endDate , inputValue ,name);
+      console.log('Alarms created successfully:', result);
+    } catch (error) {
+      console.error('Error creating alarms:', error);
+    }
+  };
+  
+
+  setAlarms(startDate, endDate , inputValue, title)
   // console.log(CalendarModule);
   // await AlarmClock.createAlarm(date.toISOString(), title);
   // await AlarmClock.loadModel();
@@ -80,13 +109,15 @@ export async function bunchofAlarm(
   
   // AlarmClock.createAlarm(date.toISOString(), title);
 }
-export function setTimeOnEndDate(endDate, endTime){
-  // console.log("+==============++++++++++++++++++++++++++++================")
-  // console.log(endTime)
-  // console.log(typeof(endTime));
-  endDate.setHours(parseInt(endTime.split(":")[0]), parseInt(endTime.split(":")[1]))
-  console.log("endDate----------",endDate.toISOString());
-}
+
+
+// export function setTimeOnEndDate(endDate, endTime){
+//   // console.log("+==============++++++++++++++++++++++++++++================")
+//   // console.log(endTime)
+//   // console.log(typeof(endTime));
+//   endDate.setHours(parseInt(endTime.split(":")[0]), parseInt(endTime.split(":")[1]))
+//   console.log("endDate----------",endDate.toISOString());
+// }
 
 // export function setAlarmfromStartToEndDate(
 //   time,
@@ -104,13 +135,13 @@ export function setTimeOnEndDate(endDate, endTime){
 //   }
 // }
 
-export function setInitialDate(startDate, dateObjectToAssignTo) {
-  dateObjectToAssignTo.setFullYear(
-    startDate.getFullYear(),
-    startDate.getMonth(),
-    startDate.getDate(),
-  );
-}
+// export function setDateOnDateObject(date, dateObjectToAssignTo) {  // thing i am getting is an date object 
+//   dateObjectToAssignTo.setFullYear(
+//     date.getFullYear(),
+//     date.getMonth(),
+//     date.getDate(),
+//   );
+// }
 
 export function check_form_validation(title) {
   if (title.trim() === "" || title.trim() === null) {

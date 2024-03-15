@@ -1,12 +1,17 @@
 package com.BunchOfAlarms; 
+
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableMap;
+
 import java.util.Map;
 import java.util.HashMap;
 import android.util.Log;
+import android.os.Build;
 
 
 import android.content.Intent;
@@ -15,9 +20,23 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
-
-
 import com.facebook.react.bridge.Promise;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+
+import java.util.Calendar;
+
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.WritableArray;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.ArrayList;
+
 
 // Make the class public
 public class CalendarModule extends ReactContextBaseJavaModule {
@@ -44,6 +63,7 @@ public class CalendarModule extends ReactContextBaseJavaModule {
         Log.d("CalendarModule", "Create event called with name: " + name
                 + " and location: " + location);
     }
+    
     @ReactMethod
     public void createAlarm(String isoDate, String name) {
         try {
@@ -67,4 +87,26 @@ public class CalendarModule extends ReactContextBaseJavaModule {
 
         Log.i("CalendarModule", "Alarm created");
     }
+    @ReactMethod
+    public void createAlarmsInRange(String startIsoDate, String endIsoDate, int intervalMinutes, String name) {
+        try {
+            TimeZone tz = TimeZone.getTimeZone("UTC");
+            DateFormat df1 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            df1.setTimeZone(tz);
+            Date startDate = df1.parse(startIsoDate);
+            Date endDate = df1.parse(endIsoDate);
+    
+            long intervalMillis = intervalMinutes * 60 * 1000; // Convert interval to milliseconds
+    
+            // Loop over the interval and create alarms
+            for (long time = startDate.getTime(); time <= endDate.getTime(); time += intervalMillis) {
+                Date alarmDate = new Date(time);
+                createAlarm(df1.format(alarmDate), name);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("CalendarModule", "Error creating alarms in range");
+        }
+    }
+    
 }
