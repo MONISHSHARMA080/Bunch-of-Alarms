@@ -42,10 +42,12 @@ export async function bunchofAlarm(
   date.setHours(hours, minutes);
   setInitialDate(startDate, date);
   
-  const { AlarmClock, CalendarModule } = NativeModules;
-  console.log("AlarmClock ++++++++++++++++++++++++++++++");
+  const { AlarmModule } = NativeModules;
+  console.log("AlarmClock ++++++++++++++++++++++++++++++",AlarmModule);
+  let a = await AlarmModule.sayHello()
+  setTimeout(()=>console.log(a),3)
   // console.log(CalendarModule);
-  await AlarmClock.createAlarm(date.toISOString(), title);
+  // await AlarmClock.createAlarm(date.toISOString(), title);
   // await AlarmClock.loadModel();
 //  AlarmClock.createAlarm(date.toISOString(), title);
 //   date.setHours(hours, minutes +3);

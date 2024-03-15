@@ -20,6 +20,7 @@ import java.util.List;
 
 // added -----
 import com.monish1.BunchofAlarms.MyAppPackage;
+import com.monish1.BunchofAlarms.AlarmModulePackage;
 // added -----
 
 
@@ -39,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
           packages.add(new MyAppPackage());
+          packages.add(new AlarmModulePackage());
           // tried to copy file 
         return packages;
       }
