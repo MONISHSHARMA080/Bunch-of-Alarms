@@ -1,9 +1,9 @@
 import * as Notifications from "expo-notifications";
-import { Alert } from "react-native";
 import PushNotification, { Importance } from "react-native-push-notification";
 // import AlarmClock from "react-native-alarm-clock";
 import { withSafeAreaInsets } from "react-native-safe-area-context";
 // import { setAlarm, SetAlarmParams } from 'expo-alarm';
+import { Alert } from "react-native";
 import { NativeModules } from 'react-native';
 
 
@@ -22,59 +22,41 @@ export function getFormattedDate(string) {
 }
 
 export async function bunchofAlarm(
-  time,
-  title,
-  endTime,
-  endDate,
-  startDate,
-  inputValue,
+    time,
+    title,
+    endTime,
+    endDate,
+    startDate,
+    inputValue,
 ) {
-
-// const a = async function (){
-//   await AlarmClock.createMultipleAlarms()
-// }
-// a()
 
   let date = new Date();
   date.setDate(date.getDate());
-  // let hours = parseInt(time.split(":")[0]);
-  // let minutes = parseInt(time.split(":")[1]);
-  // date.setHours(hours, minutes);
+
   setTimeOnDateObject(startDate,time)
   setTimeOnDateObject(endDate, endTime)
-
-
-
-
-
-  function setTimeOnDateObject(date ,time){
-    let hours = parseInt(time.split(":")[0]);
-    let minutes = parseInt(time.split(":")[1]);
-    date.setHours(hours, minutes);
-  }
-
-
-
-
-
-
-
-
 
   const { AlarmModule, CalendarModule } = NativeModules;
   console.log(CalendarModule);
   
-  const setAlarms = async (startDate, endDate , inputValue, name) => {
+  const setAlarms = async (startDate, endDate ,name, id) => {
     try {
-      const result = await CalendarModule.createAlarmsInRange(startDate, endDate , inputValue ,name);
+      const result = await CalendarModule.setAlarm(startDate, endDate, name, id);
       console.log('Alarms created successfully:', result);
     } catch (error) {
       console.error('Error creating alarms:', error);
     }
   };
   
+  console.log("startDate.getHours() is ", startDate.getHours() , typeof startDate.getHours()
+    ," startDate.getMinutes() +2 is" , startDate.getMinutes() +2 , typeof startDate.getMinutes() +2, 
+   title , "title" , typeof title
+   );
 
-  setAlarms(startDate, endDate , inputValue, title)
+  //  setAlarms(startDate.getHours(), startDate.getMinutes() + 1, title, 1)
+   setAlarms(startDate.getHours(), startDate.getMinutes() + 5, title, 2) 
+   
+   
   // console.log(CalendarModule);
   // await AlarmClock.createAlarm(date.toISOString(), title);
   // await AlarmClock.loadModel();
@@ -110,6 +92,21 @@ export async function bunchofAlarm(
   // AlarmClock.createAlarm(date.toISOString(), title);
 }
 
+export function check_form_validation(title) {
+  if (title.trim() === "" || title.trim() === null) {
+    Alert.alert("Title can't be empty", "Please enter title .");
+    return false;
+  }
+  return true;
+}
+
+export function setTimeOnDateObject(date ,time){
+  let hours = parseInt(time.split(":")[0]);
+  let minutes = parseInt(time.split(":")[1]);
+  date.setHours(hours, minutes);
+}
+
+
 
 // export function setTimeOnEndDate(endDate, endTime){
 //   // console.log("+==============++++++++++++++++++++++++++++================")
@@ -142,11 +139,3 @@ export async function bunchofAlarm(
 //     date.getDate(),
 //   );
 // }
-
-export function check_form_validation(title) {
-  if (title.trim() === "" || title.trim() === null) {
-    Alert.alert("Title can't be empty", "Please enter title .");
-    return false;
-  }
-  return true;
-}
